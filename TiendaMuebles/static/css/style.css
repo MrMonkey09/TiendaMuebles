@@ -8,26 +8,117 @@
 /* ENCABEZADO */
 .encabezado {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200px;
+    background-color: #DDC2AF;
+    gap: 5px;
 }
 
 .encabezado h1 {
     width: 100%;
+    text-align: center;
 }
 
-.encabezado i {
-    width: 100%;
+.encabezado .instagram {
+    position: relative;
+    right: 34vw;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border-style: none;
+    font-size: 1.5em;
 }
 
 .encabezado nav {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: auto;
+    text-align: center;
+}
+
+.encabezado nav ul {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
     width: 100%;
+    gap: 2em;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.encabezado nav ul a {
+    width: auto;
+    font-size: 2em;
+    color: black;
+    text-decoration: none;
 }
 
 /* PANEL DE CONTENIDO */
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #DDD6CE;
+}
 
+main h2 {
+    width: 100%;
+    text-align: center;
+    margin: 0.5em;
+}
+
+main .producto {
+    width: 40%;
+    height: auto;
+    text-align: center;
+    margin: 1em;
+}
+
+main .producto a {
+    position: relative;
+}
+
+main .producto a img {
+    width: 20rem;
+    height: auto;
+}
+
+main .producto a span {
+    position: absolute;
+    right: 0;
+    top: 8.5rem;
+    background-color: rgba(0, 0, 0, 0.43);
+    color: white;
+}
 
 /* PIE DE PAGINA */
+footer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: #92A4AA;
+    padding: 1rem;
+}
 
+footer h3 {
+    width: 80%;
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 0.5em;
+}
+
+footer span {
+    width: 75%;
+    font-size: 1.1em;
+}
 
 /* OTROS */
