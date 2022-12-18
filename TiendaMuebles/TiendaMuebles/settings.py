@@ -83,7 +83,7 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lambdadb',
+        'NAME': 'db_tienda_muebles',
         'USER': 'root',
         'HOST': 'localhost',
         'PASSWORD': ''

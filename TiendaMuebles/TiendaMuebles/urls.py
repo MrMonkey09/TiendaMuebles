@@ -19,5 +19,10 @@ from TiendaMueblesApp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.inicio)
+    path('management/', views.inicio),
+    path('', views.inicio),
+    path('productos/', views.productos),
+    path('solicitud-diseño/', views.solicitudDiseño),
+    path('seguimiento/', views.seguimiento),
+    path('contactanos/', views.contactanos)
 ]
