@@ -15,7 +15,7 @@ class imagen (models.Model):
     Ruta = models.ImageField(upload_to='static/images/')
 
 class Archivo_Complementario (models.Model):
-    id_producto = models.ForeignKey(producto, on_delete=models.CASCADE)
+    id_producto = models.IntegerField(null=False)
     Ruta = models.ImageField(upload_to='static/images/')
     
 
