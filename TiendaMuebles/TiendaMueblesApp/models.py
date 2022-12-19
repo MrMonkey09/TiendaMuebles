@@ -11,7 +11,7 @@ class producto (models.Model):
     Largo = models.PositiveIntegerField()
     
 class imagen (models.Model):
-    id_producto = models.ForeignKey(producto, on_delete=models.CASCADE)
+    id_producto = models.IntegerField(null=False)
     Ruta = models.ImageField(upload_to='static/images/')
 
 class Archivo_Complementario (models.Model):
@@ -20,7 +20,7 @@ class Archivo_Complementario (models.Model):
     
 
 class venta (models.Model):
-    id_Producto = models.ForeignKey(producto, on_delete=models.CASCADE)
+    id_Producto = models.IntegerField(null=False)
     Cantidad_Productos = models.PositiveIntegerField()
     Total = models.PositiveIntegerField()
     Fecha = models.DateField(auto_now=False, auto_now_add=False)
@@ -34,5 +34,5 @@ class usuario (models.Model):
     Rut = models.CharField(max_length=15)
     Email = models.CharField(max_length=50)
     Telefono = models.CharField(max_length=50)
-    id_venta = models.ForeignKey(venta, on_delete=models.CASCADE)
-    id_Producto = models.ForeignKey(producto, on_delete=models.CASCADE)
+    id_venta = models.IntegerField(null=False)
+    id_Producto = models.IntegerField(null=False)
