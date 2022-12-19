@@ -84,9 +84,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'db_tienda_muebles',
-        'USER': 'root',
-        'HOST': 'localhost',
-        'PASSWORD': ''
+        'USER': 'ibmh78xm7oieadvmtvah',
+        'HOST': 'aws-sa-east-1.connect.psdb.cloud',
+        'PASSWORD': 'pscale_pw_NOnfSD5xPgzEynzVaWtYcUqpBfAR0p5HQxDAlgonqyu',
+        'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
     }
 }
 
