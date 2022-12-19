@@ -23,8 +23,6 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>{{titulo}}</title>
   </head>
-  {% comment %} Esto es un comentario {% endcomment %}
-  {% comment %} Intento de commit{% endcomment %}
   <body>
     <header class="encabezado">
       <h1>Titulo de empresa/negocio</h1>
@@ -42,14 +40,37 @@
       </nav>
     </header>
     <main>
-      <h2>¡Productos Destacados!</h2>
-      <div>
-        <img src="" alt="" />
-        <p>Producto por "Nombre cliente"</p>
-      </div>
-      <div>
-        <img src="" alt="" />
-        <p>Producto "Caracteristica"</p>
+      <div class="container-form">
+        <div class="info-form">
+            <h2>Contáctanos</h2>
+            <br>
+            <h4>Producto a medida</h3>
+            <p>
+              Podemos modificar las dimensiones la mayoría de nuestros productos para ajustarlas a tu necesidades, en este caso el valor se ajusta proporcionalmente más un cargo de 5% por redimensionamiento.
+            </p>
+            <h4>Carpinteria de autor</h4>
+            <p>
+              Abordamos personalmente cada etapa de la producción de nuestros muebles, siendo todos concebidos y construidos íntegramente con nuestras manos, y es que buscamos reposicionar el oficio del carpintero al alimentarlo de las herramientas propias del diseño y la proyección arquitectónica. Esto nos permite hacer ajustes a nuestros productos según las necesidades personales de cada cliente, o incluso proponer soluciones alternativas fuera de nuestro catálogo. Así también estamos abiertos a recibir ideas de proyectos personales, prestando asesoría en cada caso. <br>
+              <br>
+              Nos interesa el trabajo a baja escala, proteger la condición artesanal de nuestra propuesta, producir poco pero producir bien, entregar un servicio y personalizado, sin intermediarios. Combinamos así el diseño de autor, con un proceso de producción artesanal, el resultado una carpintería de autor.
+            <h4>Nosotros</h4>
+            <p>
+              Somos un taller artesanal de mobiliario. En este espacio desarrollamos pequeños proyectos en los que imprimimos nuestra visión del diseño y del arte de la carpintería, así, nuestros productos no solo representan nuestras preferencias estéticas, no solo son objeto, sino sobre todo expresión de nuestro modo de trabajar la madera, son obra, técnica, pasión, sudor y aprendizaje. Aquí el trabajo ha pedido, a medida y a baja escala, resultan las reglas para asegurar la calidad no solo de nuestro servicio y nuestros proyectos, sino en el ritmo de vida que defendemos.
+            </p>
+
+            </p>
+        </div>
+        <form>
+          <div class="row">
+            <a>Nombre y Apellido de Contacto</a>
+            <input type="text" name="NombreApellido" placeholder="Nombre y Apellido" class="campo">
+            <a>Rut de Contacto</a>
+            <input type="number" name="rut" placeholder="XX.XXX.XXX-X" class="campo">
+            <textarea name="mensaje" placeholder="Tu Mensaje..."></textarea>
+            <input type="submit" name="enviar" value="Enviar Mensaje" class="btn-enviar">
+          <div>
+          
+        </form>
       </div>
     </main>
     <footer>
