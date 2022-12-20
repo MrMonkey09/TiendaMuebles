@@ -1,242 +1,287 @@
 /* GENERAL */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* ENCABEZADO */
 .encabezado {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    background-color: #DDC2AF;
-    gap: 5px;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  background-color: #ddc2af;
+  gap: 5px;
 }
 
 .encabezado h1 {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .encabezado .instagram {
-    width: auto;
-    height: auto;
-    background-color: transparent;
-    border-style: none;
-    font-size: 1.5em;
+  width: auto;
+  height: auto;
+  background-color: transparent;
+  border-style: none;
+  font-size: 1.5em;
 }
 
 .encabezado nav {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: auto;
-    text-align: center;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  text-align: center;
 }
 
 .encabezado nav ul {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 2em;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2em;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .encabezado nav ul a {
-    width: auto;
-    font-size: 2em;
-    color: black;
-    text-decoration: none;
+  width: auto;
+  font-size: 2em;
+  color: black;
+  text-decoration: none;
 }
 
 /* PANEL DE CONTENIDO */
 main {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: #DDD6CE;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd6ce;
 }
 
 main h2 {
-    width: 100%;
-    text-align: center;
-    margin: 0.5em;
+  width: 100%;
+  text-align: center;
+  margin: 0.5em;
 }
 
 main .producto {
-    width: 40%;
-    height: auto;
-    text-align: center;
-    margin: 1em;
+  width: 40%;
+  height: auto;
+  text-align: center;
+  margin: 1em;
 }
 
 main .producto a {
-    position: relative;
+  position: relative;
 }
 
 main .producto a img {
-    width: 20rem;
-    height: auto;
+  width: 20rem;
+  height: auto;
 }
 
 main .producto a span {
-    position: absolute;
-    right: 0;
-    top: 8.5rem;
-    background-color: rgba(0, 0, 0, 0.43);
-    color: white;
+  position: absolute;
+  right: 0;
+  top: 8.5rem;
+  background-color: rgba(0, 0, 0, 0.43);
+  color: white;
 }
 
 /* PIE DE PAGINA */
 footer {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    align-items: center;
-    background-color: #92A4AA;
-    padding: 1rem;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #92a4aa;
+  padding: 1rem;
 }
 
 footer h3 {
-    width: 80%;
-    text-align: center;
-    border-bottom: 2px solid black;
-    padding-bottom: 0.5em;
+  width: 80%;
+  text-align: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 0.5em;
 }
 
 footer span {
-    width: 75%;
-    font-size: 1.1em;
+  width: 75%;
+  font-size: 1.1em;
 }
 /* OTROS */
 
 /* Contactanos */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
-.container-form{
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    grid-gap: 50px;
-    margin-top: 90px;
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+.container-form {
+  width: 100%;
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 50px;
+  margin-top: 90px;
 }
-.container-form h2{
-    margin-bottom: 15px;
-    font-size: 35px
+.container-form h2 {
+  margin-bottom: 15px;
+  font-size: 35px;
 }
-.container-form p{
-    font-size: 17px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+.container-form p {
+  font-size: 17px;
+  line-height: 1.6;
+  margin-bottom: 30px;
 }
-.container-form a{
-    font-size: 17px;
-    display: inline-block;
-    text-decoration: none;
-    width: 100%;
-    margin-bottom: 15px;
-    color: black;
-    font-weight: 700;
+.container-form a {
+  font-size: 17px;
+  display: inline-block;
+  text-decoration: none;
+  width: 100%;
+  margin-bottom: 15px;
+  color: black;
+  font-weight: 700;
 }
-.container-form a i{
-    color: orange;
-    margin-right: 10px;
+.container-form a i {
+  color: orange;
+  margin-right: 10px;
 }
-.container-form form .campo, textarea{
-    width: 100%;
-    padding: 15px 10px;
-    font-size: 16px;
-    border: 1px solid #dbdbdb;
-    margin-bottom: 20px;
-    border-radius: 3px;
-    outline: 0px;
+.container-form form .campo,
+textarea {
+  width: 100%;
+  padding: 15px 10px;
+  font-size: 16px;
+  border: 1px solid #dbdbdb;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  outline: 0px;
 }
-.container-form form textarea{
-    max-width: 530px;
-    min-width: 530px;
-    min-height: 140px;
-    max-height: 150px;
+.container-form form textarea {
+  max-width: 530px;
+  min-width: 530px;
+  min-height: 140px;
+  max-height: 150px;
 }
-.container-form .btn-enviar{
-    padding-left: 8%;
-    padding-right: 8%;
-    margin-left: 75%;
-    font-size: 16px;
-    border: none;
-    outline: 0px;
-    background: white;
-    color: black;
-    border-radius: 13rem;
-    border: 1px solid black;
-    cursor: pointer;
-    transition: all 300ms ease;
+.container-form .btn-enviar {
+  padding-left: 8%;
+  padding-right: 8%;
+  margin-left: 75%;
+  font-size: 16px;
+  border: none;
+  outline: 0px;
+  background: white;
+  color: black;
+  border-radius: 13rem;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 300ms ease;
 }
-.container-form .btn-enviar:hover{
-    background: #bebebe;
+.container-form .btn-enviar:hover {
+  background: #bebebe;
 }
-.contacto
-{
-    display: flex;
-    flex-flow: row wrap;
-    column-gap: 5%;
+.contacto {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 5%;
 }
-.input-nombre
-{
-    width: 50%;
+.input-nombre {
+  width: 50%;
 }
-.input-correo
-{
-    width: 45%;
+.input-correo {
+  width: 45%;
 }
-.input-numero
-{
-    width: 45%;
+.input-numero {
+  width: 45%;
 }
-.input-asunto
-{
-    width: 50%;
+.input-asunto {
+  width: 50%;
 }
 /* envia tus diseños */
 
-
-.input-nombreProyecto
-{
-    width: 50%;
+.input-nombreProyecto {
+  width: 50%;
 }
 
-.input-dimensiones
-{
-    width: 45%;
+.input-dimensiones {
+  width: 45%;
 }
 
 /* Productos */
 
-.btn-buscar
-{
-    padding-left: 20px;
-    padding-right: 20px;
-    font-size: 16px;
-    border: none;
-    outline: 0px;
-    background: white;
-    color: black;
-    border-radius: 13rem;
-    border: 1px solid black;
-    cursor: pointer;
-    transition: all 300ms ease;
+.btn-buscar {
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 16px;
+  border: none;
+  outline: 0px;
+  background: white;
+  color: black;
+  border-radius: 13rem;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: all 300ms ease;
 }
-.btn-buscar:hover 
-{
-    background: #bebebe;
+.btn-buscar:hover {
+  background: #bebebe;
+}
+
+/* Seguimiento de pedido */
+.search {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.search h2 {
+    width: 100%;
+    text-align: left;
+    margin: 0;
+}
+
+.search .btn-buscar {
+  font-size: 16px;
+  border: none;
+  background: white;
+  color: black;
+  border-radius: 13rem;
+  border: 1px solid black;
+  width: auto;
+  height: auto;
+}
+
+.tracker-panel {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 12em;
+}
+
+.tracker {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.tracker p {
+    background-color: rgba(0, 0, 0, 0.08);
+    font-size: 1.8em;
+}
+
+.estado {
+    border-radius: 5em;
+    width: 3em;
+    height: 3em;
 }

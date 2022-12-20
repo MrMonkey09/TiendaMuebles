@@ -25,7 +25,7 @@
   </head>
   <body>
     <header class="encabezado">
-      <div style="width: 70%;height:200px;background-color: #DDC2AF;">
+      <div style="width: 70%; height: 200px; background-color: #ddc2af">
         <h1>Titulo de empresa/negocio</h1>
         <button class="instagram" href="#">
           <i class="bi bi-instagram"></i>
@@ -42,14 +42,29 @@
       </div>
     </header>
     <main>
-      <h2>¡Productos Destacados!</h2>
-      <div>
-        <img src="" alt="" />
-        <p>Producto por "Nombre cliente"</p>
+      <div class="search">
+        <h2>Seguimiento de Pedidos</h2>
+        <div>
+          <i class="bi bi-search"></i>
+          <input
+            type="text"
+            name="search"
+            placeholder="Buscar Pedido"
+            class="search-input"
+            id="search"
+          />
+        </div>
+        <button type="button" class="btn-buscar">Buscar</button>
       </div>
-      <div>
-        <img src="" alt="" />
-        <p>Producto "Caracteristica"</p>
+      <div class="tracker-panel">
+        <div class="tracker">
+          <div class="estado">&nbsp;</div>
+          <p>En produccion</p>
+        </div>
+        <div class="tracker">
+          <div class="estado">&nbsp;</div>
+          <p>En produccion</p>
+        </div>
       </div>
     </main>
     <footer>
