@@ -36,3 +36,6 @@ class usuario (models.Model):
     Telefono = models.CharField(max_length=50)
     id_venta = models.ForeignKey(venta, on_delete=models.CASCADE)
     id_Producto = models.ForeignKey(producto, on_delete=models.CASCADE)
+    
+class producto_promocionado (models.Model):
+    id_imagen = models.ForeignKey(imagen, on_delete=models.CASCADE)
