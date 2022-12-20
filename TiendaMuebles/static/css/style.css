@@ -214,25 +214,183 @@ textarea {
 }
 
 /* Productos */
-
-.btn-buscar {
-  padding-left: 20px;
-  padding-right: 20px;
-  font-size: 16px;
-  border: none;
-  outline: 0px;
-  background: white;
-  color: black;
-  border-radius: 13rem;
-  border: 1px solid black;
-  cursor: pointer;
-  transition: all 300ms ease;
+.productos {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd6ce;
 }
-.btn-buscar:hover {
-  background: #bebebe;
+
+.productos-encabezado {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 3em;
+  gap: 3em;
+}
+
+.productos-buscador {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.productos-buscador div {
+  background-color: white;
+  border-radius: 20px;
+  width: 35%;
+  font-size: 1.3em;
+  padding: 0.2em 0.7em;
+  border: 1px solid black;
+}
+
+.productos-buscador div input {
+  border-style: none;
+  border-radius: 0 20px 20px 0;
+  outline: none;
+}
+
+.productos-buscador button {
+  margin-left: 2em;
+  border: 1px solid black;
+  background-color: white;
+  width: 8em;
+  height: 2.5em;
+  border-radius: 20px;
+}
+
+.productos-panel {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2em;
+}
+
+.productos-panel .productos-paginacion {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2em;
+}
+
+.productos-panel .productos-paginacion button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.5em;
+}
+
+.productos-panel .productos-lista {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 90%;
+  margin-bottom: 2em;
+}
+
+.productos-producto {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Seguimiento de pedido */
-.hola {
-    background-color: white;
+.buscador {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  background-color: #ddd6ce;
+}
+
+.buscador #titulo-buscador {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 1em 0;
+}
+
+.buscador #titulo-buscador h3 {
+  width: 69%;
+  text-align: left;
+}
+
+.buscador form {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 69%;
+  border-bottom: 1px solid black;
+  margin-bottom: 2em;
+  padding-bottom: 1em;
+}
+
+.buscador form .search {
+  background-color: white;
+  border-radius: 20px;
+  width: 45%;
+  font-size: 1.3em;
+  padding: 0.2em 0.7em;
+}
+
+.buscador form .search #search {
+  border-style: none;
+  border-radius: 0 20px 20px 0;
+  outline: none;
+}
+
+.buscador button {
+  margin-left: 2em;
+  border: 1px solid black;
+  background-color: white;
+  width: 8em;
+  height: 2.5em;
+  border-radius: 20px;
+}
+
+.buscador .estados {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+  height: 50vh;
+}
+
+.buscador .estados .estado {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  width:35%;
+}
+
+.buscador .estados .estado #estado-etapa {
+  border: 1px solid black;
+  border-radius: 2em;
+  padding: 0.4em 0.88em;
+  font-size: 1.3em;
+}
+
+.buscador .estados .estado #estado-nombre {
+  font-size: 1.2em;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.08);
+  font-size: 1.3em;
+  text-align: center;
+  padding: 0.2em;
 }

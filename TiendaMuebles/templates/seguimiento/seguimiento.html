@@ -41,19 +41,30 @@
         </nav>
       </div>
     </header>
-    <main>
-      <form action="/action_page.php">
-        <div class="hola">
-          <label for="gsearch">Search Google:</label>
+    <main class="buscador">
+      <div id="titulo-buscador"><h3>Seguimiento de Pedidos</h3></div>
+      <form>
+        <div class="search">
+          <label for="search"><i class="bi bi-search"></i></label>
           <input
-            placeholder="buscar pedido"
+            placeholder="Buscar Pedido"
             type="search"
-            id="gsearch"
-            name="gsearch"
+            id="search"
+            name="search"
           />
         </div>
-        <input type="submit" value="Submit" />
+        <button type="button">Buscar</button>
       </form>
+      <section class="estados">
+        <div class="estado">
+          <p id="estado-etapa">1</p>
+          <p id="estado-nombre">En <br> produccion</p>
+        </div>
+        <div class="estado">
+          <p id="estado-etapa">1</p>
+          <p id="estado-nombre">En <br> produccion</p>
+        </div>
+      </section>
     </main>
     <footer>
       <h3>Acerca de nosotros</h3>
