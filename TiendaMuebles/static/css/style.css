@@ -236,9 +236,9 @@ textarea {
 .search {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 70%;
 }
 
 .search h2 {
