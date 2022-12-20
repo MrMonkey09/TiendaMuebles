@@ -28,5 +28,3 @@ urlpatterns = [
     path('seguimiento/', views.seguimiento),
     path('contactanos/', views.contactanos)
 ]
-
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
