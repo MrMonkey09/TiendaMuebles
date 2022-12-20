@@ -170,6 +170,9 @@ footer span {
 }
 .container-form .btn-enviar{
     padding: 15px;
+    padding-left: 8%;
+    padding-right: 8%;
+
     font-size: 16px;
     border: none;
     outline: 0px;
@@ -181,4 +184,32 @@ footer span {
 }
 .container-form .btn-enviar:hover{
     background: #e39403;
+}
+.contacto
+{
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 5%;
+}
+.input-nombre
+{
+    width: 50%;
+    
+}
+.input-rut
+{
+    width: 45%;
+}
+.input-correo
+{
+    width: 50%;
+}
+.input-numero
+{
+    width: 45%
+}
+.btn-enviar
+{
+    margin-left: 75%;
+    border-radius: 50%;
 }
