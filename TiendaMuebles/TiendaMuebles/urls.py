@@ -16,8 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from TiendaMueblesApp import views
+from django.conf import settings
 import static
-import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
