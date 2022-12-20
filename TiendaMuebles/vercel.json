@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "TiendaMuebles/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "TiendaMuebles/wsgi.py"
+    }
+  ]
+}
