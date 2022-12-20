@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "TiendaMuebles/wsgi.py",
+      "src": "TiendaMuebles/wsgi_prod.py",
       "use": "@vercel/python"
     },
     {
