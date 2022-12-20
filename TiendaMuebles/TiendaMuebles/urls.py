@@ -16,15 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from TiendaMueblesApp import views
-from django.conf import settings
-import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('management/', views.inicio),
     path('', views.inicio),
     path('productos/', views.productos),
-    path('solicitud-diseño/', views.solicitudDiseño),
+    path('solicitud-diseno/', views.solicitudDiseño),
     path('seguimiento/', views.seguimiento),
     path('contactanos/', views.contactanos)
 ]
