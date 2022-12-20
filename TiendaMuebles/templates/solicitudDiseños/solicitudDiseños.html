@@ -1,70 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-  {% load static %}
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-      crossorigin="anonymous"
-    ></script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <title>{{titulo}}</title>
-  </head>
-  <body>
-    <header class="encabezado">
-      <div style="width: 70%;height:200px;background-color: #DDC2AF;">
-        <h1>Titulo de empresa/negocio</h1>
-        <button class="instagram" href="#">
-          <i class="bi bi-instagram"></i>
-        </button>
-        <nav>
-          <ul>
-            <a href="/">Inicio</a>
-            <a href="/productos">Productos</a>
-            <a href="#">¡Envía tus diseños!</a>
-            <a href="/seguimiento">Seguimiento</a>
-            <a href="/contactanos">Contáctanos</a>
-          </ul>
-        </nav>
+{% load static %}
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+  <title>{{titulo}}</title>
+</head>
+
+<body>
+  <header class="encabezado">
+    <div style="width: 70%;height:200px;background-color: #DDC2AF;">
+      <h1>Titulo de empresa/negocio</h1>
+      <button class="instagram" href="#">
+        <i class="bi bi-instagram"></i>
+      </button>
+      <nav>
+        <ul>
+          <a href="/">Inicio</a>
+          <a href="/productos">Productos</a>
+          <a href="#">¡Envía tus diseños!</a>
+          <a href="/seguimiento">Seguimiento</a>
+          <a href="/contactanos">Contáctanos</a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="container-form">
+      <div class="info-form">
+        <h4>Como Comprar</h3>
+          <p>
+            Todos nuestros productos se fabrican a pedido, para realizar un encargo o simplemente para hacer cualquier
+            consulta llena el formulario adjunto, o si prefieres escribenos directamente a Nombre.Empresa@gmail.com
+          </p>
+          <h4>Proyecto a Pedido</h4>
+          <p>
+            Los proyectos a pedido se desarrollan en 4 etapas:<br>
+            1. Estimación del valor general de proyecto según complejidad y del valor del desarrollo de su diseño.<br>
+            2. Luego del pago del diseño se trabaja en el desarrollo de propuestas y se entrega un presupuesto preciso
+            del proyecto.<br>
+            3. Aprobado el presupuesto se debe cancelar el 50% para iniciar su construcción.<br>
+            4. 50% restante se cancela al momento de retirar o recibir el proyecto.<br>
+          </p>
+          <h4>Formas de Entrega</h4>
+          <p>
+            Retiro <br>
+            Puedes retirar tu pedido directamente desde nuestra tienda/taller, de lunes a viernes entre 10:00 y 20:00,
+            previa confirmación.
+            San Diego 1070, Local 5
+          </p>
       </div>
-    </header>
-    <main>
-      <h2>¡Productos Destacados!</h2>
-      <div>
-        <img src="" alt="" />
-        <p>Producto por "Nombre cliente"</p>
-      </div>
-      <div>
-        <img src="" alt="" />
-        <p>Producto "Caracteristica"</p>
-      </div>
-    </main>
-    <footer>
-      <h3>Acerca de nosotros</h3>
-      <span
-        >Somos un taller artesanal de mobiliario. En este espacio desarrollamos
-        pequeños proyectos en los que imprimimos nuestra visión del diseño y del
-        arte de la carpintería, así, nuestros productos no solo representan
-        nuestras preferencias estéticas, no solo son objeto, sino sobre todo
-        expresión de nuestro modo de trabajar la madera, son obra, técnica,
-        pasión, sudor y aprendizaje. Aquí el trabajo ha pedido, a medida y a
-        baja escala, resultan las reglas para asegurar la calidad no solo de
-        nuestro servicio y nuestros proyectos, sino en el ritmo de vida que
-        defendemos.
-      </span>
-    </footer>
-  </body>
+      <form>
+        <div class="contacto">
+
+          <div class="input-nombre">
+            <a>Nombre y Apellido de Contacto</a>
+            <input type="text" name="nombre" placeholder="Nombre y Apellido" class="campo">
+          </div>
+
+          <div class="input-rut">
+            <a>Rut de Contacto</a>
+          <input type="text" name="rut" placeholder="XX.XXX.XXX-X" class="campo">
+          </div>
+
+          <div class="input-correo">
+            <a>Correo de Contacto</a>
+          <input type="text" name="correo" placeholder="Ingrese correo " class="campo">
+          </div>
+
+          <div class="input-numero">
+            <a>Numero de Contacto</a>
+          <input type="text" name="numeroContacto" placeholder="+569 xxxxxxxx" class="campo">
+          </div>
+
+          <div class="input-nombreProyecto">
+            <a>Nombre Proyecto</a>
+          <input type="text" name="nombreProyecto" placeholder="Nombre del Proyecto" class="campo">
+          </div>
+
+          <div class="input-dimensiones">
+            <a>dimensiones</a>
+          <input type="text" name="dimensiones" placeholder="Dimensiones del Proyecto" class="campo">
+          </div>
+
+          <div class="input-descripcion">
+            <a>Descripción</a>
+            <textarea name="descripcion" placeholder="Describa su proyecto..."></textarea>
+          </div>
+
+          <div class="input-referencia">
+            <a>Archivo de Referencia</a>
+            <textarea name="referencia" placeholder="Selecione un referencia de referencia ..."></textarea>
+            <input type="submit" name="enviar" value="Enviar" class="btn-enviar text-center">
+          </div>
+          <br>
+
+        <div>
+
+      </form>
+    </div>
+  </main>
+  <footer>
+    <h3>Acerca de nosotros</h3>
+    <span>Somos un taller artesanal de mobiliario. En este espacio desarrollamos
+      pequeños proyectos en los que imprimimos nuestra visión del diseño y del
+      arte de la carpintería, así, nuestros productos no solo representan
+      nuestras preferencias estéticas, no solo son objeto, sino sobre todo
+      expresión de nuestro modo de trabajar la madera, son obra, técnica,
+      pasión, sudor y aprendizaje. Aquí el trabajo ha pedido, a medida y a
+      baja escala, resultan las reglas para asegurar la calidad no solo de
+      nuestro servicio y nuestros proyectos, sino en el ritmo de vida que
+      defendemos.
+    </span>
+  </footer>
+</body>
+
 </html>
