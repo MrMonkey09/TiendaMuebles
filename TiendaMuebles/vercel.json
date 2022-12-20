@@ -9,6 +9,10 @@
     {
       "src": "/(.*)",
       "dest": "TiendaMuebles/wsgi.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
     }
   ]
 }
