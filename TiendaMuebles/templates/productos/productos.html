@@ -42,16 +42,20 @@
       </div>
     </header>
     <main>
-      <input type="search"></input>
-      <h2>¡Productos Destacados!</h2>
-      <div>
-        <img src="" alt="" />
-        <p>Producto por "Nombre cliente"</p>
-      </div>
-      <div>
-        <img src="" alt="" />
-        <p>Producto "Caracteristica"</p>
-      </div>
+      <div class="producto" style="width: 100%">
+        <a href="#">
+          <img
+            src="{% static 'images/product-placeholder.jpeg' %}"
+            alt="img-producto"
+            style="width: 15rem"
+          />
+        </a>
+        <div class="input-group mt-3">
+          <input type="search" class="form-control"></input>
+          <button class="btn-buscar">buscar</button>
+        </div>
+
+        
     </main>
     <footer>
       <h3>Acerca de nosotros</h3>
