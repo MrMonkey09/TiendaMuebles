@@ -169,21 +169,21 @@ footer span {
     max-height: 150px;
 }
 .container-form .btn-enviar{
-    padding: 15px;
     padding-left: 8%;
     padding-right: 8%;
-
+    margin-left: 75%;
     font-size: 16px;
     border: none;
     outline: 0px;
-    background: orange;
-    color: white;
-    border-radius: 3px;
+    background: white;
+    color: black;
+    border-radius: 13rem;
+    border: 1px solid black;
     cursor: pointer;
     transition: all 300ms ease;
 }
 .container-form .btn-enviar:hover{
-    background: #e39403;
+    background: #bebebe;
 }
 .contacto
 {
@@ -194,26 +194,19 @@ footer span {
 .input-nombre
 {
     width: 50%;
-    
-}
-.input-rut
-{
-    width: 45%;
 }
 .input-correo
 {
-    width: 50%;
+    width: 45%;
 }
 .input-numero
 {
-    width: 45%
+    width: 45%;
 }
-.btn-enviar
+.input-asunto
 {
-    margin-left: 75%;
-    border-radius: 50%;
+    width: 50%;
 }
-
 /* envia tus diseños */
 
 
