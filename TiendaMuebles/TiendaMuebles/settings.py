@@ -83,11 +83,10 @@ pymysql.install_as_MySQLdb()
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'db_tienda_muebles',
-        'USER': 'ibmh78xm7oieadvmtvah',
-        'HOST': 'aws-sa-east-1.connect.psdb.cloud',
-        'PASSWORD': 'pscale_pw_NOnfSD5xPgzEynzVaWtYcUqpBfAR0p5HQxDAlgonqyu',
-        'OPTIONS': {'ssl': {'ca': 'static/cert/cacert.pem'}}
+        'NAME': 'bxy8pltphgeinfvpidsc',
+        'USER': 'uisluynjhrhpncof',
+        'HOST': 'bxy8pltphgeinfvpidsc-mysql.services.clever-cloud.com',
+        'PASSWORD': 'pCMlDA5P59Rfuv6oZb9I'
     }
 }
 
