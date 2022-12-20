@@ -42,30 +42,18 @@
       </div>
     </header>
     <main>
-      <div class="search">
-        <h2>Seguimiento de Pedidos</h2>
-        <div>
-          <i class="bi bi-search"></i>
+      <form action="/action_page.php">
+        <div class="hola">
+          <label for="gsearch">Search Google:</label>
           <input
-            type="text"
-            name="search"
-            placeholder="Buscar Pedido"
-            class="search-input"
-            id="search"
+            placeholder="buscar pedido"
+            type="search"
+            id="gsearch"
+            name="gsearch"
           />
         </div>
-        <button type="button" class="btn-buscar">Buscar</button>
-      </div>
-      <div class="tracker-panel">
-        <div class="tracker">
-          <div class="estado">&nbsp;</div>
-          <p>En produccion</p>
-        </div>
-        <div class="tracker">
-          <div class="estado">&nbsp;</div>
-          <p>En produccion</p>
-        </div>
-      </div>
+        <input type="submit" value="Submit" />
+      </form>
     </main>
     <footer>
       <h3>Acerca de nosotros</h3>
