@@ -45,7 +45,7 @@
       <section class="productos-encabezado">
         <a href="#">
           <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
+            src="/{{productoFav.id_producto.Imagen_1}}"
             alt="img-producto"
             style="width: 15rem"
           />
@@ -64,43 +64,17 @@
         </div>
       </section>
       <section class="productos-panel">
-        <div class="productos-paginacion">
-          <button>{{'<'}}</button>
-          <button>1</button>
-          <button>{{'>'}}</button>
-        </div>
         <div class="productos-lista">
+          {% for producto in productos %}
           <article class="productos-producto">
             <img
-              src="{% static 'images/product-placeholder.jpeg' %}"
+              src="/{{producto.Imagen_1}}"
               alt="img-producto"
               style="width: 15rem"
             />
-            <span>Nombre Producto</span>
+            <span>{{producto}}</span>
           </article>
-          <article class="productos-producto">
-            <img
-              src="{% static 'images/product-placeholder.jpeg' %}"
-              alt="img-producto"
-              style="width: 15rem"
-            />
-            <span>Nombre Producto</span>
-          </article>
-          <article class="productos-producto">
-            <img
-              src="{% static 'images/product-placeholder.jpeg' %}"
-              alt="img-producto"
-              style="width: 15rem"
-            />
-            <span>Nombre Producto</span>
-          </article>
-          <article class="productos-producto">
-            <img
-              src="{% static 'images/product-placeholder.jpeg' %}"
-              alt="img-producto"
-              style="width: 15rem"
-            />
-            <span>Nombre Producto</span>
+          {% endfor %}
           </article>
         </div>
       </section>

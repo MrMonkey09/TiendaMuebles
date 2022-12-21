@@ -35,14 +35,18 @@ ALLOWED_HOSTS = ['.vercel.app', '.now.sh','127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'admin_interface',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'TiendaMueblesApp'
+    'TiendaMueblesApp',
+    'colorfield'
 ]
+
+X_FRAME_OPTIONS = "SAMEORIGIN"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

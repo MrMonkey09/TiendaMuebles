@@ -46,67 +46,25 @@
       <div class="producto" style="width: 100%">
         <a href="#">
           <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
+            src="{{productoFav.id_producto.Imagen_1}}"
             alt="img-producto"
             style="width: 25rem"
           />
-          <span style="right: 0; top: 11rem">Diseño matias</span>
+          <span style="right: 0; top: 11rem">{{productoFav.id_producto}}</span>
         </a>
       </div>
+      {% for producto in productos %}
       <div class="producto">
         <a href="#">
           <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
+            src="{{producto.id_producto.Imagen_1}}"
             alt="img-producto"
           />
-          <span>Diseño matias</span>
+          <span>{{producto}}</span>
         </a>
       </div>
-      <div class="producto">
-        <a href="#">
-          <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
-            alt="img-producto"
-          />
-          <span>Diseño matias</span>
-        </a>
-      </div>
-      <div class="producto">
-        <a href="#">
-          <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
-            alt="img-producto"
-          />
-          <span>Diseño matias</span>
-        </a>
-      </div>
-      <div class="producto">
-        <a href="#">
-          <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
-            alt="img-producto"
-          />
-          <span>Diseño matias</span>
-        </a>
-      </div>
-      <div class="producto">
-        <a href="#">
-          <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
-            alt="img-producto"
-          />
-          <span>Diseño matias</span>
-        </a>
-      </div>
-      <div class="producto">
-        <a href="#">
-          <img
-            src="{% static 'images/product-placeholder.jpeg' %}"
-            alt="img-producto"
-          />
-          <span>Diseño matias</span>
-        </a>
-      </div>
+      {% endfor %}
+      
     </main>
     <footer>
       <h3>Acerca de nosotros</h3>

@@ -153,56 +153,15 @@ footer span {
   color: orange;
   margin-right: 10px;
 }
-.container-form form .campo,
-textarea {
-  width: 100%;
-  padding: 15px 10px;
-  font-size: 16px;
-  border: 1px solid #dbdbdb;
-  margin-bottom: 20px;
-  border-radius: 3px;
-  outline: 0px;
-}
-.container-form form textarea {
-  max-width: 530px;
-  min-width: 530px;
-  min-height: 140px;
-  max-height: 150px;
-}
-.container-form .btn-enviar {
-  padding-left: 8%;
-  padding-right: 8%;
-  margin-left: 75%;
-  font-size: 16px;
-  border: none;
-  outline: 0px;
-  background: white;
-  color: black;
-  border-radius: 13rem;
-  border: 1px solid black;
-  cursor: pointer;
-  transition: all 300ms ease;
-}
-.container-form .btn-enviar:hover {
-  background: #bebebe;
-}
-.contacto {
+
+#formulario-contactanos {
   display: flex;
-  flex-flow: row wrap;
-  column-gap: 5%;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
 }
-.input-nombre {
-  width: 50%;
-}
-.input-correo {
-  width: 45%;
-}
-.input-numero {
-  width: 45%;
-}
-.input-asunto {
-  width: 50%;
-}
+
+
 /* envia tus diseños */
 
 .input-nombreProyecto {
