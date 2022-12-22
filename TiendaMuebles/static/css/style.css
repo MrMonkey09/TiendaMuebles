@@ -22,13 +22,6 @@
   text-align: center;
 }
 
-.encabezado .instagram {
-  width: auto;
-  height: auto;
-  background-color: transparent;
-  border-style: none;
-  font-size: 1.5em;
-}
 
 .encabezado nav {
   display: flex;
