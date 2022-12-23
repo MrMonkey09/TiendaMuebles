@@ -162,13 +162,48 @@ footer span {
 
 
 /* envia tus diseños */
+.solicitud-diseños
+{
+    display: flex;
+    flex-flow: row wrap;
+    column-gap: 5%;
+}
+.input-nombre
+{
+    width: 50%;
+    
+}
+.input-numero
+{
+    width: 45%
+}
+.input-correo
+{
+    width: 50%;
+}
 
 .input-nombreProyecto {
   width: 50%;
 }
 
-.input-dimensiones {
+.input-alto {
   width: 45%;
+}
+
+.input-ancho {
+  width: 50%;
+}
+
+.input-Largo {
+  width: 45%;
+}
+.Nombre-seccion {
+  width: 100%;
+}
+
+.container-form h4 {
+  width: 100%;
+  margin-top: 10px;
 }
 
 /* Productos */
@@ -254,6 +289,8 @@ footer span {
   align-items: center;
   width: 90%;
   margin-bottom: 2em;
+  margin-left: 40em;
+  margin-right: 40em;
 }
 
 .productos-producto {
@@ -280,6 +317,15 @@ footer span {
   left: 50%;
   border-width: 0.5px;
   position: absolute;
+}
+
+.Buscador-producto{
+  background-color: white;
+  border-radius: 20px;
+  width: 100%;
+  font-size: 1.3em;
+  padding: 0.2em 0.7em;
+  
 }
 
 
