@@ -70,7 +70,7 @@ main .producto {
   width: 40%;
   height: auto;
   text-align: center;
-  margin: 1em;
+  margin: 5%;
 }
 
 main .producto a {
@@ -278,9 +278,10 @@ footer span {
   justify-content: space-around;
   align-items: center;
   width: 90%;
-  margin-bottom: 2em;
-  margin-left: 40em;
-  margin-right: 40em;
+  margin-bottom: 5em;
+  margin-top: 5em;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 .productos-producto {
