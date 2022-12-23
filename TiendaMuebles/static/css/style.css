@@ -124,7 +124,7 @@ footer span {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
-  margin-top: 90px;
+  margin-top: 30px;
 }
 
 .container-form h2 {
@@ -160,6 +160,14 @@ footer span {
   align-items: center;
 }
 
+.input-asunto {
+  width: 100%;
+}
+
+.input-textarea {
+  width: 100%;
+  height: 5em;
+}
 
 /* envia tus diseños */
 .solicitud-diseños
@@ -168,37 +176,19 @@ footer span {
     flex-flow: row wrap;
     column-gap: 5%;
 }
-.input-nombre
+
+.input-izquierda
 {
     width: 50%;
-    
 }
-.input-numero
+
+.input-derecha
 {
     width: 45%
 }
-.input-correo
-{
-    width: 50%;
-}
 
-.input-nombreProyecto {
-  width: 50%;
-}
-
-.input-alto {
-  width: 45%;
-}
-
-.input-ancho {
-  width: 50%;
-}
-
-.input-Largo {
-  width: 45%;
-}
-.Nombre-seccion {
-  width: 100%;
+.input-descripcion {
+  width: 96%;
 }
 
 .container-form h4 {
@@ -313,7 +303,7 @@ footer span {
 
 .vertical-line {
   border-left: thick solid #000;
-  height: 80ch;
+  height: 75ch;
   left: 50%;
   border-width: 0.5px;
   position: absolute;

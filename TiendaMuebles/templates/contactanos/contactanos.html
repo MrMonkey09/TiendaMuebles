@@ -71,17 +71,8 @@
         {% csrf_token %}
         <h4>Formulario de contacto</h4>
         <div class="solicitud-diseños">
-          <div>
-            <a>Asunto</a>
-            <input
-              type="text"
-              name="asunto"
-              placeholder="Ingrese el asunto de contacto."
-              class="campo"
-            />
-          </div>
-
-          <div>
+          
+          <div class="input-izquierda">
             <a>Nombre y Apellido de Contacto</a>
             <input
               type="text"
@@ -91,7 +82,7 @@
             />
           </div>
 
-          <div>
+          <div class="input-derecha">
             <a>Numero de Contacto</a>
             <label for="numeroContacto">+569</label>
             <input
@@ -102,7 +93,7 @@
             />
           </div>
 
-          <div>
+          <div class="input-izquierda">
             <a>Correo de Contacto</a>
             <input
               type="email"
@@ -112,9 +103,20 @@
             />
           </div>
 
-          <div>
+          <div class="input-asunto">
+            <a>Asunto</a>
+            <input
+              type="text"
+              name="asunto"
+              placeholder="Ingrese el asunto de contacto."
+              class="campo input-asunto"
+            />
+          </div>
+
+          <div class="input-asunto">
             <a>Mensaje de contacto</a>
             <textarea
+              class="input-textarea"
               name="descripcion"
               placeholder="Ingrese su mensaje de contacto aqui."
             ></textarea>
