@@ -42,3 +42,7 @@ def contactanos (peticion):
         pass
         
     return render(peticion, 'contactanos/contactanos.html', data)
+
+def vistaProducto (peticion):
+    data = {"titulo": "¡Producto Selecionado!"}
+    return render(peticion, 'vistaProducto/vistaProducto.html', data)
