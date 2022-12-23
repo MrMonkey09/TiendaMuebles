@@ -1,33 +1,24 @@
 from django.shortcuts import render
-from .models import producto, solicitud_diseño, venta, producto_promocionado, solicitud_contacto
-from .forms import SolicitudContactoForm, SolicitudDiseñoForm
+from .models import producto, imagen, Comprador, Registro_venta, detalle_Venta
+from .functions import handled_uploaded_file
 
 # Create your views here.
+
 def inicio (peticion):
-    producto_promo = producto_promocionado.objects.get(id=1)
-    producto_promo_list = producto_promocionado.objects.all()
-    data = {"titulo": "Inicio",
-            "productos": producto_promo_list,
-            "productoFav": producto_promo}
+    data = {"titulo": "Inicio"}
     return render(peticion, 'inicio.html', data)
 
 def productos (peticion):
     producto_list = producto.objects.all()
-    producto_promo = producto_promocionado.objects.get(id=1)
     data = {"titulo": "Productos",
-            "productos": producto_list,
-            "productoFav": producto_promo}
+            "productos": producto_list}
     return render(peticion, 'productos/productos.html', data)
 
 def solicitudDiseño (peticion):
     data = {"titulo": "¡Envianos tus diseños!"}
     if peticion.method == 'POST':
-        formulario = SolicitudContactoForm(data=peticion.POST)
-        if formulario.is_valid():
-            formulario.save()
-            print("solicitud enviada")
-        else:
-            data["form"] = formulario
+        pass
+    
     return render(peticion, 'solicitudDiseños/solicitudDiseños.html', data)
 
 def seguimiento (peticion):
@@ -35,15 +26,9 @@ def seguimiento (peticion):
     return render(peticion, 'seguimiento/seguimiento.html', data)
 
 def contactanos (peticion):
-    data = {"titulo": "Contactanos", 
-            "form": SolicitudContactoForm()}
+    data = {"titulo": "Contactanos"}
     
     if peticion.method == 'POST':
-        formulario = SolicitudContactoForm(data=peticion.POST)
-        if formulario.is_valid():
-            formulario.save()
-            print("solicitud enviada")
-        else:
-            data["form"] = formulario
+        pass
         
     return render(peticion, 'contactanos/contactanos.html', data)

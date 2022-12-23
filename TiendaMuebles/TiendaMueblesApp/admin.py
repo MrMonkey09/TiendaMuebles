@@ -1,30 +1,39 @@
 from django.contrib import admin
-from .models import producto,  venta, producto_promocionado, solicitud_contacto
+
+from .models import producto, imagen, detalle_Venta, Registro_venta, Comprador
 # Register your models here.
 
-class ProductoAdmin(admin.ModelAdmin):
-    list_display = ["Nombre_Producto","Precio","Stock","Material","Alto","Ancho","Largo"]
-    search_fields = ["Nombre_Producto"]
-    list_filter = ["Material"]
-    
-class SolicitudDiseñoAdmin(admin.ModelAdmin):
-    list_display = ["Nombre_Apellido","Correo","Numero_Contacto","Nombre_Proyecto","Material","Alto","Ancho","Largo"]
-    search_fields = ["Nombre_Apellido", "Correo", "Nombre_Proyecto"]
-    list_filter = ["Material"]
-    
-class VentaAdmin(admin.ModelAdmin):
-    list_display = ["Estado","Cantidad_Productos","Total","Fecha","Nombre_cliente","Rut","Email","Telefono","id_Producto", "id_diseño"]
-    search_fields = ["Nombre_cliente"]
-    list_filter = ["Estado"]
-    
-class ProductoPromocionadoAdmin(admin.ModelAdmin):
-    list_display = ["id_producto"]
-    
-class SolicitudContactoAdmin(admin.ModelAdmin):
-    list_display = ["Nombre_Apellido","Correo","Numero_Contacto","Asunto"]
-    search_fields = ["Nombre_Apellido", "Asunto"]
+class ImagenProducto_Admin(admin.TabularInline):
+    model = imagen
 
-admin.site.register(producto, ProductoAdmin)
-admin.site.register(venta, VentaAdmin)
-admin.site.register(producto_promocionado, ProductoPromocionadoAdmin)
-admin.site.register(solicitud_contacto, SolicitudContactoAdmin)
+class admin_producto(admin.ModelAdmin):
+    list_display = ['Nombre_Producto', 'Precio', 'Stock', 'Alto', 'Ancho', 'Largo', 'Fabricado', 'Promocionado']
+    search_fields = ['Nombre_Producto']
+    search_help_text = "Ingrese el nombre del Producto que desee buscar"
+    list_filter = ['Fabricado', 'Promocionado']
+    inlines = [
+        ImagenProducto_Admin
+    ]
+
+class admin_imagen(admin.ModelAdmin):
+    list_display = ['Ruta']
+
+class admin_Detalle_Venta(admin.ModelAdmin):
+    list_display = ['id_registro_Venta', 'Comprador','Email', 'Fecha_Compra','Telefono','id_Producto', 'Comprados', 'Total']
+    list_filter = ['id_Producto__Nombre_Producto']
+    search_fields = ['id_registro_Venta__id_Comprador__Nombre_Comprador', 'id_registro_Venta__id_Comprador__Email','id_Producto__Nombre_Producto' ]
+    search_help_text = "Busque por datos de Comprador o datos de producto"
+
+class admin_Venta(admin.ModelAdmin):
+    list_display = ['Cantidad_Productos', 'Total', 'Fecha', 'id_Comprador']
+
+class admin_Comprador(admin.ModelAdmin):
+    list_display = ['Nombre_Comprador','Email', 'Rut', 'Telefono']
+    search_fields = ['Nombre_Comprador']
+    search_help_text = "Ingrese el nombre del comprador que desea buscar"
+    
+admin.site.register(producto, admin_producto)
+admin.site.register(imagen, admin_imagen)
+admin.site.register(detalle_Venta, admin_Detalle_Venta)
+admin.site.register(Registro_venta, admin_Venta)
+admin.site.register(Comprador, admin_Comprador)

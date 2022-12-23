@@ -1,68 +1,82 @@
 from django.db import models
 
 # Create your models here.
+
 class producto (models.Model):
-    Nombre_Producto= models.CharField(max_length=50, null=False, blank=False)
-    Precio = models.PositiveIntegerField(null=False, blank=False)
-    Stock = models.PositiveIntegerField(null=False, blank=False)
-    Material = models.CharField(max_length=50, null=False, blank=False)
-    Alto = models.PositiveIntegerField(null=False, blank=False)
-    Ancho = models.PositiveIntegerField(null=False, blank=False)
-    Largo = models.PositiveIntegerField(null=False, blank=False)
-    Imagen_1 = models.FileField(upload_to='static/images/productos/')
-    Imagen_2 = models.FileField(upload_to='static/images/productos/')
-    Imagen_3 = models.FileField(upload_to='static/images/productos/')
-    Imagen_4 = models.FileField(upload_to='static/images/productos/')
+    Nombre_Producto= models.CharField(max_length=50)
+    Precio = models.PositiveIntegerField()
+    Stock = models.PositiveIntegerField()
+    Alto = models.PositiveIntegerField()
+    Ancho = models.PositiveIntegerField()
+    Largo = models.PositiveIntegerField()
+    Fabricado = models.BooleanField(verbose_name="A pedido")
+    Promocionado= models.BooleanField(default=False, verbose_name="Â¿Promocionar?")
     
     def __str__(self):
         return self.Nombre_Producto
     
+class imagen (models.Model):
+    class Meta:
+        verbose_name_plural = "Imagenes"
+    Ruta = models.ImageField(upload_to='static/images/productos/')
+    Id_Producto = models.ForeignKey(producto ,on_delete=models.CASCADE, related_name="imagenes")
     
-class solicitud_diseño (models.Model):
-    Nombre_Apellido =  models.CharField(max_length=100, null=False, blank=False)
-    Correo = models.EmailField() 
-    Numero_Contacto = models.IntegerField(null=False, blank=False)
-    Nombre_Proyecto = models.CharField(max_length=256, null=False)
-    Material = models.CharField(max_length=50, null=False, blank=False)
-    Alto = models.PositiveIntegerField(null=False, blank=False)
-    Ancho = models.PositiveIntegerField(null=False, blank=False)
-    Largo = models.PositiveIntegerField(null=False, blank=False)
-    Descripcion = models.TextField()
-    Archivo_Complementario_1 = models.FileField(upload_to='static/docs/')
-    Archivo_Complementario_2 = models.FileField(upload_to='static/docs/')
-    Archivo_Complementario_3 = models.FileField(upload_to='static/docs/')
-    Archivo_Complementario_4 = models.FileField(upload_to='static/docs/')
+    
+class Comprador (models.Model):
+    class Meta:
+        verbose_name = "comprador"
+        verbose_name_plural = "Compradores"
+    Nombre_Comprador = models.CharField(max_length=50)
+    Email = models.EmailField(max_length=50)
+    Telefono = models.CharField(max_length=50)
+    Rut = models.CharField(max_length=12)
     
     def __str__(self):
-        return self.Nombre_Proyecto
+        return self.Nombre_Comprador
 
-class venta (models.Model):
-    Cantidad_Productos = models.PositiveIntegerField()
+class Registro_venta (models.Model):
+    class Meta:
+        verbose_name = "Registro de venta"
+        verbose_name_plural = "Registros de venta"
+    Cantidad_Productos = models.PositiveIntegerField("Productos Vendidos")
     Total = models.PositiveIntegerField()
     Fecha = models.DateField(auto_now=False, auto_now_add=False)
-    Nombre_cliente = models.CharField(max_length=50,null=False, blank=False)
-    Rut = models.CharField(max_length=15,null=False, blank=False)
-    Email = models.CharField(max_length=50,null=False, blank=False)
-    Telefono = models.CharField(max_length=50,null=False, blank=False)
-    Estado = models.CharField(max_length=256)
-    id_Producto = models.ForeignKey(producto, on_delete=models.CASCADE, null=True, blank=True)
-    id_diseño = models.ForeignKey(solicitud_diseño, on_delete=models.CASCADE, null=True, blank=True)
+    Pagado = models.BooleanField(default=False)
+    id_Comprador = models.ForeignKey(Comprador, on_delete=models.CASCADE, verbose_name="Comprador")
     
     def __str__(self):
-        return self.Nombre_cliente
+        Llave = str(self.pk)
+        return Llave
     
-class producto_promocionado (models.Model):
-    id_producto = models.ForeignKey(producto, on_delete=models.CASCADE,null=False, blank=False)
-    
-    def __str__(self):
-        return self.id_producto.Nombre_Producto
+class detalle_Venta (models.Model):
+    class Meta:
+        verbose_name = "detalle de la venta"
+        verbose_name_plural = "Detalles de las ventas"
+    id_registro_Venta = models.ForeignKey(Registro_venta, on_delete=models.CASCADE)
+    id_Producto = models.ForeignKey(producto, on_delete=models.CASCADE, verbose_name="Producto")
 
-class solicitud_contacto (models.Model):
-    Nombre_Apellido =  models.CharField(max_length=100, null=False)
-    Correo = models.EmailField() 
-    Numero_Contacto = models.IntegerField()
-    Asunto = models.CharField(max_length=256, null=False)
-    Contenido_Mensaje = models.TextField(null=False, blank=False)
+    def Comprador(self):
+        nom_Comprador = self.id_registro_Venta.id_Comprador.Nombre_Comprador
+        return nom_Comprador
     
-    def __str__(self):
-        return self.Nombre_Apellido
+    def Email(self):
+        correo = self.id_registro_Venta.id_Comprador.Email
+        return correo
+    
+    def Fecha_Compra(self):
+        Fecha = self.id_registro_Venta.Fecha
+        return Fecha
+    
+    def Telefono(self):
+        celu = self.id_registro_Venta.id_Comprador.Telefono
+        return celu
+    
+    def Comprados(self):
+        cantidad = self.id_registro_Venta.Cantidad_Productos
+        return cantidad
+    
+    def Total(self):
+        Compradas = self.id_registro_Venta.Cantidad_Productos
+        Precio = self.id_Producto.Precio
+        Total = Compradas * Precio
+        return Total
