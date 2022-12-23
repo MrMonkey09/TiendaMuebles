@@ -69,9 +69,72 @@
       <form action="" id="formulario-contactanos" method="post"
         style="display:flex;flex-flow: column nowrap;justify-content: flex-start;align-items: flex-start;">
         {% csrf_token %}
-        {{form}}
-        <button type="submit" id="btnContactanosForm"
-          style="border:1px solid black;padding:0.2em 2em;background-color:white;border-radius:2em;margin-top:1em">Enviar</button>
+        <h4>Formulario de contacto</h4>
+        <div class="solicitud-diseños">
+          <div>
+            <a>Asunto</a>
+            <input
+              type="text"
+              name="asunto"
+              placeholder="Ingrese el asunto de contacto."
+              class="campo"
+            />
+          </div>
+
+          <div>
+            <a>Nombre y Apellido de Contacto</a>
+            <input
+              type="text"
+              name="nombre"
+              placeholder="Nombre y Apellido"
+              class="campo"
+            />
+          </div>
+
+          <div>
+            <a>Numero de Contacto</a>
+            <label for="numeroContacto">+569</label>
+            <input
+              type="number"
+              name="numeroContacto"
+              placeholder="xxxxxxxx"
+              class="campo"
+            />
+          </div>
+
+          <div>
+            <a>Correo de Contacto</a>
+            <input
+              type="email"
+              name="correo"
+              placeholder="Ingrese correo "
+              class="campo"
+            />
+          </div>
+
+          <div>
+            <a>Mensaje de contacto</a>
+            <textarea
+              name="descripcion"
+              placeholder="Ingrese su mensaje de contacto aqui."
+            ></textarea>
+          <div>
+            <button
+              type="submit"
+              id="btnContactanosForm"
+              style="
+                border: 1px solid black;
+                padding: 0.2em 2em;
+                background-color: white;
+                border-radius: 2em;
+                margin-top: 1em;
+              "
+            >
+              Enviar
+            </button>
+          </div>
+          <br />
+        </div>
       </form>
   </main>
   <footer>
