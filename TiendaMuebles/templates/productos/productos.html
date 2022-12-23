@@ -20,6 +20,8 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     <title>{{titulo}}</title>
   </head>
@@ -50,17 +52,16 @@
         </a>
         <div id="buscador-productos"><h3>Buscar Producto</h3></div>
         <form>
-          <div class="search">
-            <label for="search"><i class="bi bi-search"></i></label>
-            <input
-              placeholder="Buscar Producto"
-              type="search"
-              id="search-producto"
-              name="search-producto"
-            />
+          <div class="container box-search">
+            <div class="search_wrap search_wrap_1">
+              <div class="search_box">
+                <input type="text" class="input" placeholder="Buscar Producto...">
+                <div class="btn btn_common">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+            </div>
           </div>
-          <button type="button">Buscar</button>
-        </div>
       </section>
       <section class="productos-panel">
         <div class="productos-lista">
