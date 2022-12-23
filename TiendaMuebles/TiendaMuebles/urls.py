@@ -24,6 +24,6 @@ urlpatterns = [
     path('productos/', views.productos),
     path('solicitud-diseno/', views.solicitudDiseño),
     path('seguimiento/', views.seguimiento),
-    path('vistaProducto/', views.vistaProducto),
+    path('vistaProducto/<int:id_producto>', views.vistaProducto),
     path('contactanos/', views.contactanos)
 ]

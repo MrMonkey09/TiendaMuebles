@@ -25,9 +25,9 @@
   </head>
   <body>
     <header class="encabezado">
-      <div style="width: 70%;height:200px;background-color: #DDC2AF;">
+      <div style="width: 70%; height: 200px; background-color: #ddc2af">
         <h1>Titulo de empresa/negocio</h1>
-        
+
         <nav>
           <ul>
             <a href="#">Inicio</a>
@@ -42,26 +42,40 @@
     <main>
       <h2>¡Productos Destacados!</h2>
       <div class="producto" style="width: 100%">
-        <a href="#">
+        <a href="vistaProducto/{{producto.id}}">
+          {% if producto.imagenes.first == None %}
           <img
-            src="{{productoFav.id_producto.Imagen_1}}"
+            src="{% static 'images/product-placeholder.jpeg' %}"
             alt="img-producto"
             style="width: 25rem"
           />
-          <span style="right: 0; top: 11rem">{{productoFav.id_producto}}</span>
+          <span style="right: 0; top: 11rem">{{producto}}</span>
+          {% elif producto.imagenes.first != None %}
+          <img
+            src="{{producto.imagenes.first.Ruta}}"
+            alt="img-producto"
+            style="width: 25rem"
+          />
+          <span style="right: 0; top: 11rem">{{producto}}</span>
+          {% endif %}
         </a>
       </div>
-      {% for producto in productos %}
+      {% for p in productos %} {% if p.id != producto.id %}
       <div class="producto">
-        <a href="#">
+        <a href="vistaProducto/{{p.id}}">
+          {% if p.imagenes.first == None %}
           <img
-            src="{{producto.Id_Producto}}"
+            src="{% static 'images/product-placeholder.jpeg' %}"
             alt="img-producto"
           />
+          <span>{{p}}</span>
+          {% elif p.imagenes.first != None %}
+          <img src="{{p.imagenes.first.Ruta}}" alt="img-producto" />
+          <span>{{p}}</span>
+          {% endif %}
         </a>
       </div>
-      {% endfor %}
-      
+      {% endif %} {% endfor %}
     </main>
     <footer>
       <h3>Acerca de nosotros</h3>

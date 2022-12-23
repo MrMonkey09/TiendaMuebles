@@ -5,21 +5,14 @@ from .functions import handled_uploaded_file
 # Create your views here.
 
 def inicio (peticion):
-    promocionados = []
-    imagen_list = imagen.objects.all()
-    for image in imagen_list:
-        if image.Id_Producto.Promocionado:
-            if image in promocionados:
-                pass
-            else:
-                promocionados.append(image)
-                print("producto"+image.Id_Producto.Nombre_Producto+" promocionado")
-    
-    data = {"titulo": "Inicio", "productos": promocionados}
-    return render(peticion, 'inicio.html', data)
+    Productos = producto.objects.filter(Promocionado = True)
+    Primer_Producto = Productos.first()
+    data = {'productos': Productos, "producto": Primer_Producto
+            }
+    return render (peticion, 'Inicio.html', data)
 
 def productos (peticion):
-    producto_list = producto.objects.all()
+    producto_list = imagen.objects.all()
     data = {"titulo": "Productos",
             "productos": producto_list}
     return render(peticion, 'productos/productos.html', data)
@@ -43,6 +36,11 @@ def contactanos (peticion):
         
     return render(peticion, 'contactanos/contactanos.html', data)
 
-def vistaProducto (peticion):
-    data = {"titulo": "¡Producto Selecionado!"}
+def vistaProducto (peticion, id_producto):
+    Producto = producto.objects.get(id=id_producto)
+    print(Producto)
+    data = {
+        "titulo": "¡Producto Selecionado!", 
+        "producto": Producto
+        }
     return render(peticion, 'vistaProducto/vistaProducto.html', data)
