@@ -5,7 +5,17 @@ from .functions import handled_uploaded_file
 # Create your views here.
 
 def inicio (peticion):
-    data = {"titulo": "Inicio"}
+    promocionados = []
+    imagen_list = imagen.objects.all()
+    for image in imagen_list:
+        if image.Id_Producto.Promocionado:
+            if image in promocionados:
+                pass
+            else:
+                promocionados.append(image)
+                print("producto"+image.Id_Producto.Nombre_Producto+" promocionado")
+    
+    data = {"titulo": "Inicio", "productos": promocionados}
     return render(peticion, 'inicio.html', data)
 
 def productos (peticion):
