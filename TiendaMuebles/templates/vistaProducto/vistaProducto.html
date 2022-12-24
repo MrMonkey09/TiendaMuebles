@@ -36,83 +36,33 @@
   </header>
   <main>
     <div class="vistaProducto">
-      <div style="width: 48%;">
-        <span >
-          {% if producto.imagenes.first == None %}
-          <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
-            <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 100%" />
-          </a>
-          {% elif producto.imagenes.first != None %}
-          <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
-            <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 16rem" />
-          </a>
-          {% endif %}
-        </span>
-        <hr>
-        <div class="miniImagen-Producto">
-          <div>
-            <form class="canvan-producto-mini" method="POST">
-              {% csrf_token %}
-              {% if producto.imagenes. == None %}
-              <button type="submit" class="productos-producto">
-                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
-              </button>
+      <div style="width: 50%; margin-bottom: 25px;">
+        <div class="container-p">
+          <div class="img_container">
+            <span class="main_img">
+              {% if producto.imagenes.first == None %}
+              <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
+                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 65%" />
+              </a>
               {% elif producto.imagenes.first != None %}
-              <button type="submit" class="productos-producto">
-                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
-              </button>
+              <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
+                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 65%" />
+              </a>
               {% endif %}
-            </form>
+            </span>
           </div>
-          <div>
-            <form class="canvan-producto-mini" method="POST">
-              {% csrf_token %}
-              {% if producto.imagenes. == None %}
-              <button type="submit" class="productos-producto">
-                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
-              </button>
-              {% elif producto.imagenes.first != None %}
-              <button type="submit" class="productos-producto">
-                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
-              </button>
-              {% endif %}
-            </form>
-          </div>
-          <div>
-            <form class="canvan-producto-mini" method="POST">
-              {% csrf_token %}
-              {% if producto.imagenes. == None %}
-              <button type="submit" class="productos-producto">
-                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
-              </button>
-              {% elif producto.imagenes.first != None %}
-              <button type="submit" class="productos-producto">
-                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
-              </button>
-              {% endif %}
-            </form>
-          </div>
-          <div>
-            <form class="canvan-producto-mini" method="POST">
-              {% csrf_token %}
-              {% if producto.imagenes. == None %}
-              <button type="submit" class="productos-producto">
-                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
-              </button>
-              {% elif producto.imagenes.first != None %}
-              <button type="submit" class="productos-producto">
-                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
-              </button>
-              {% endif %}
-            </form>
+          <hr>
+          <div class="thumbnail_container">
+            <img class="thumbnail active" src="/{{producto.imagenes.first.Ruta}}" alt="">
+            <img class="thumbnail" src="/{{producto.imagenes.second.Ruta}}" alt="">
+            <img class="thumbnail" src="img3.jpg" alt="">
+            <img class="thumbnail" src="img4.jpg" alt="">
           </div>
         </div>
-        <hr>
-
       </div>
       <hr class="vertical-line-producto" />
       <div style="width: 48%;">
-        <h2 style="text-transform:uppercase;" >{{producto}}</h2>
+        <h2 style="text-transform:uppercase;">{{producto}}</h2>
         <h3>$ {{producto.Precio}}</h3>
         <hr>
         <div class="vistaProducto-datos">
@@ -130,7 +80,6 @@
             <h5>{{producto.Ancho}}mm</h5>
           </div>
         </div>
-
         <hr>
         <div class="cantidad">
           <h4>Cantidad<h4>
@@ -170,12 +119,27 @@
 
   //creation of increment function
   function increment() {
-      data = data + 1;
-      document.getElementById("contador").innerText = data;
+    data = data + 1;
+    document.getElementById("contador").innerText = data;
   }
   //creation of decrement function
   function decrement() {
-      data = data - 1;
-      document.getElementById("contador").innerText = data;
+    data = data - 1;
+    document.getElementById("contador").innerText = data;
   }
+
+  // script de selectro de imagen
+  const main_img = document.querySelector('.main_img')
+  const thumbnails = document.querySelectorAll('.thumbnail')
+
+  thumbnails.forEach(thumb => {
+    thumb.addEventListener('click', function () {
+      const active = document.querySelector('.active')
+      active.classList.remove('active')
+      thumb.classList.add('active')
+      main_img.src = thumb.src
+    })
+  })
+
+
 </script>

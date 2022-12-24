@@ -270,6 +270,7 @@ footer span {
   justify-content: center;
   align-items: center;
   position: relative;
+  
 }
 
 .productos-producto span {
@@ -530,7 +531,7 @@ footer span {
   max-width: 1100px;
   margin: auto;
   display: flex;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1fr, 1fr);
   grid-gap: 50px;
   margin-top: 30px;
 }
@@ -620,3 +621,56 @@ footer span {
   background-color: #8b7d77;
 }
 /* Vista Producto final */
+
+
+/* PRUEBA CARRUSEL IMAGEN */
+
+.container-p {
+  width: 100%;
+  justify-content: center
+}
+
+.container-p .img_container {
+    width: 100%px;
+    height: 450px;
+    margin-bottom: 25px;
+}
+
+
+.container-p .img_container .main_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    box-shadow: 0 5px 5px rgba(1, 23, 46, 0.6);
+    object-fit:cover;
+}
+
+.container-p .thumbnail_container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.container-p .thumbnail_container .thumbnail {
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    cursor: pointer;
+    object-fit: cover;
+    opacity: .7;
+    transition: .3s;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.container-p .thumbnail_container .thumbnail:hover {
+    opacity: 1;
+}
+
+.active {
+    opacity:  1 !important;
+    box-shadow: 0 5px 5px rgba(1, 23, 46, 0.6);
+}
+/* Fin Carrusel se debe modificar? */
