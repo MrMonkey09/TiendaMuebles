@@ -27,7 +27,7 @@
     <header class="encabezado">
       <div>
         <h1>Titulo de empresa/negocio</h1>
-        <br>
+        <br />
         <nav>
           <ul>
             <a href="/">Inicio</a>
@@ -41,7 +41,8 @@
     </header>
     <main class="buscador">
       <div id="titulo-buscador"><h3>Seguimiento de Pedidos</h3></div>
-      <form>
+      <form method="POST">
+        {% csrf_token %}
         <div class="search">
           <label for="search"><i class="bi bi-search"></i></label>
           <input
@@ -51,18 +52,18 @@
             name="search"
           />
         </div>
-        <button type="button">Buscar</button>
+        <button type="submit">Buscar</button>
       </form>
       <section class="estados">
-        <div class="estado">
-          <p id="estado-etapa">1</p>
-          <p id="estado-nombre">En <br> produccion</p>
-        </div>
-        <hr class="linea-punteada">
-        <div class="estado">
-          <p id="estado-etapa">2</p>
-          <p id="estado-nombre">Entregado</p>
-        </div>
+        {% if pedido != "" %}
+        <p>{{pedido.id_registro_Venta.id_Comprador}}</p>
+        <p>{{pedido.id_registro_Venta.id_Comprador.Email}}</p>
+        <p>{{pedido.id_registro_Venta.id_Comprador.Telefono}}</p>
+        <p>{{pedido.id_registro_Venta.id_Comprador.Rut}}</p>
+        <br>
+        {% elif pedido == "" %}
+        <p>Por favor ingrese un número.</p>
+        {% endif %}
       </section>
     </main>
     <footer>

@@ -68,7 +68,14 @@ def solicitudDiseño(peticion):
 
 
 def seguimiento(peticion):
-    data = {"titulo": "Seguimiento"}
+    pedido = ""
+    if 'search' in peticion.POST:
+        if peticion.POST['search'] != "":
+            print(peticion.POST['search'])
+            pedido = detalle_Venta.objects.get(
+                id=peticion.POST['search'])
+            print(pedido)
+    data = {"titulo": "Seguimiento", "pedido":pedido}
     return render(peticion, 'seguimiento/seguimiento.html', data)
 
 
