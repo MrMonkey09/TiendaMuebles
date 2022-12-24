@@ -298,6 +298,15 @@ footer span {
   position: absolute;
 }
 
+.vertical-line-producto {
+  border-left: thick solid #000;
+  height: 50ch;
+  left: 50%;
+  border-width: 0.5px;
+  position: absolute;
+}
+
+
 .productos form {
   display: flex;
   flex-flow: row nowrap;
