@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     {% load static %}
     <meta charset="UTF-8" />
@@ -27,7 +27,7 @@
   </head>
   <body>
     <header class="encabezado">
-      <div style="width: 70%; height: 200px; background-color: #ddc2af">
+      <div>
         <h1>Titulo de empresa/negocio</h1>
         <br>
         <nav>
@@ -43,15 +43,29 @@
     </header>
     <main class="productos">
       <section class="productos-encabezado">
-        <a href="#">
+        <h3>Buscar Producto</h3>
+        {% if productoPromo.imagenes.first == None %}
+        <a href="/vistaProducto/{{productoPromo.id}}">
           <img
-            src="/{{productoFav.id_producto.Imagen_1}}"
+            src="{% static 'images/product-placeholder.jpeg' %}"
             alt="img-producto"
             style="width: 15rem"
           />
+          <span style="right: 0.2rem; top: 87%;">{{productoPromo}}</span>
         </a>
-        <div id="productos"><h3>Buscar Producto</h3></div>
-        <form>
+        {% elif productoPromo.imagenes.first != None  %}
+          <a href="/vistaProducto/{{productoPromo.id}}">
+            <img
+              src="{{productoPromo.imagenes.first.Ruta}}"
+              alt="img-producto"
+              style="width: 15rem"
+            />
+            <span style="right: 0.2rem; top: 80%;">{{productoPromo}}</span>
+          </a>
+        {% endif %}
+        
+        <form method="POST">
+          {% csrf_token %}
           <div class="search">
             <label for="search"><i class="bi bi-search"></i></label>
             <input
@@ -61,20 +75,31 @@
               name="search"
             />
           </div>
-          <button type="button">Buscar</button>
+          <button type="submit">Buscar</button>
         </form> 
       </section>
       <section class="productos-panel">
         <div class="productos-lista">
           {% for producto in productos %}
-          <article class="productos-producto">
+          {% if producto.imagenes.first == None %}
+          <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
             <img
-              src="/{{producto.Imagen_1}}"
+            src="{% static 'images/product-placeholder.jpeg' %}"
               alt="img-producto"
-              style="width: 15rem"
+              style="width: 16rem"
             />
             <span>{{producto}}</span>
-          </article>
+          </a>
+          {% elif producto.imagenes.first != None %}
+          <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
+            <img
+            src="/{{producto.imagenes.first.Ruta}}"
+              alt="img-producto"
+              style="width: 16rem"
+            />
+            <span>{{producto}}</span>
+          </a>
+          {% endif %}
           {% endfor %}
           </article>
         </div>

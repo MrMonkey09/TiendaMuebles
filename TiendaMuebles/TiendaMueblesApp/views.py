@@ -1,46 +1,91 @@
 from django.shortcuts import render
 from .models import producto, imagen, Comprador, Registro_venta, detalle_Venta
 from .functions import handled_uploaded_file
+import random
 
 # Create your views here.
 
-def inicio (peticion):
-    Productos = producto.objects.filter(Promocionado = True)
+
+def inicio(peticion):
+    Productos = producto.objects.filter(Promocionado=True)
     Primer_Producto = Productos.first()
     data = {'productos': Productos, "producto": Primer_Producto
             }
-    return render (peticion, 'Inicio.html', data)
+    return render(peticion, 'Inicio.html', data)
 
-def productos (peticion):
-    producto_list = imagen.objects.all()
+
+def productos(peticion):
+    producto_list = producto.objects.all()
+    producto_list_promo = producto.objects.filter(Promocionado=True)
+    producto_promo = random.choice(producto_list_promo)
+    if 'search' in peticion.POST:
+        if peticion.POST['search'] != "":
+            print(peticion.POST['search'])
+            producto_list = producto.objects.filter(
+                Nombre_Producto__icontains=peticion.POST['search'])
     data = {"titulo": "Productos",
-            "productos": producto_list}
+            "productos": producto_list, "productoPromo": producto_promo}
     return render(peticion, 'productos/productos.html', data)
 
-def solicitudDiseño (peticion):
+
+def solicitudDiseño(peticion):
     data = {"titulo": "¡Envianos tus diseños!"}
-    if peticion.method == 'POST':
-        pass
+    print(peticion.POST)
     
+    if peticion.method == 'POST':
+        qd = peticion.POST
+        
+        Nombre_Comprador = qd['nombre']
+        Telefono = qd['numeroContacto']
+        Email = qd['correo']
+        Rut = qd['rut']
+        comprador = Comprador(Nombre_Comprador=Nombre_Comprador, Telefono=Telefono,Email=Email, Rut=Rut)
+        comprador.save()
+        print(comprador)
+        
+        Nombre_Producto = qd['Nombre_Producto']
+        Alto = qd['Alto']
+        Ancho = qd['Ancho']
+        Largo = qd['Largo']
+        solicitud = producto(Nombre_Producto=Nombre_Producto,Precio=0, Stock=0, Alto=Alto, Ancho=Ancho, Largo=Largo, Fabricado=True)
+        solicitud.save()
+        print(solicitud)
+        
+        files = peticion.FILES.getlist('file')
+        for f in files:
+            nuevaImagen = imagen(Ruta=f, Id_Producto=solicitud)
+            nuevaImagen.save()
+
+        Cantidad_Productos = qd['Cantidad_Producto']
+        nuevaVenta = Registro_venta(Cantidad_Productos=Cantidad_Productos, Total=0, id_Comprador=comprador)
+        nuevaVenta.save()
+        print(nuevaVenta)
+        
+        nuevoDetalle = detalle_Venta(id_registro_Venta=nuevaVenta, id_Producto=solicitud)
+        nuevoDetalle.save()
+
     return render(peticion, 'solicitudDiseños/solicitudDiseños.html', data)
 
-def seguimiento (peticion):
+
+def seguimiento(peticion):
     data = {"titulo": "Seguimiento"}
     return render(peticion, 'seguimiento/seguimiento.html', data)
 
-def contactanos (peticion):
+
+def contactanos(peticion):
     data = {"titulo": "Contactanos"}
-    
+
     if peticion.method == 'POST':
         pass
-        
+
     return render(peticion, 'contactanos/contactanos.html', data)
 
-def vistaProducto (peticion, id_producto):
+
+def vistaProducto(peticion, id_producto):
     Producto = producto.objects.get(id=id_producto)
     print(Producto)
     data = {
-        "titulo": "¡Producto Selecionado!", 
+        "titulo": "¡Producto Selecionado!",
         "producto": Producto
-        }
+    }
     return render(peticion, 'vistaProducto/vistaProducto.html', data)

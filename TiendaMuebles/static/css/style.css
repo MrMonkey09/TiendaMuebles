@@ -17,13 +17,18 @@
   gap: 5px;
 }
 
-.encabezado h1 {
+.encabezado div {
+  width: 80%;
+  height: auto;
+  background-color: #ddc2af;
+}
+
+.encabezado div h1 {
   width: 100%;
   text-align: center;
 }
 
-
-.encabezado nav {
+.encabezado div nav {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
@@ -33,9 +38,9 @@
   text-align: center;
 }
 
-.encabezado nav ul {
+.encabezado div nav ul {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -44,7 +49,7 @@
   border-bottom: 1px solid black;
 }
 
-.encabezado nav ul a {
+.encabezado div nav ul a {
   width: auto;
   font-size: 2em;
   color: black;
@@ -58,19 +63,18 @@ main {
   justify-content: center;
   align-items: center;
   background-color: #ddd6ce;
+  gap: 2em;
 }
 
 main h2 {
   width: 100%;
   text-align: center;
-  margin: 0.5em;
 }
 
 main .producto {
   width: 40%;
   height: auto;
   text-align: center;
-  margin: 5%;
 }
 
 main .producto a {
@@ -170,21 +174,18 @@ footer span {
 }
 
 /* envia tus diseños */
-.solicitud-diseños
-{
-    display: flex;
-    flex-flow: row wrap;
-    column-gap: 5%;
+.solicitud-diseños {
+  display: flex;
+  flex-flow: row wrap;
+  column-gap: 5%;
 }
 
-.input-izquierda
-{
-    width: 50%;
+.input-izquierda {
+  width: 50%;
 }
 
-.input-derecha
-{
-    width: 45%
+.input-derecha {
+  width: 45%;
 }
 
 .input-descripcion {
@@ -212,8 +213,19 @@ footer span {
   align-items: center;
   width: 100%;
   margin-top: 1em;
-  margin-bottom: 3em;
-  gap: 3em;
+  gap: 1em;
+}
+
+.productos-encabezado a {
+  position: relative;
+}
+
+.productos-encabezado a span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.43);
+  color: white;
 }
 
 .productos-panel {
@@ -222,7 +234,6 @@ footer span {
   justify-content: center;
   align-items: center;
   width: 100%;
-  gap: 2em;
 }
 
 .productos-panel .productos-paginacion {
@@ -247,9 +258,10 @@ footer span {
   align-items: center;
   width: 90%;
   margin-bottom: 5em;
-  margin-top: 5em;
-  padding-left: 15%;
-  padding-right: 15%;
+  margin-top: 2em;
+  padding-left: 5%;
+  padding-right: 5%;
+  gap: 2rem 1.15em;
 }
 
 .productos-producto {
@@ -257,6 +269,15 @@ footer span {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
+  position: relative;
+}
+
+.productos-producto span {
+  position: absolute;
+  right: 0.3rem;
+  top: 87%;
+  background-color: rgba(0, 0, 0, 0.43);
+  color: white;
 }
 
 .marco-archivo {
@@ -267,7 +288,6 @@ footer span {
   padding-top: 0em;
   border: 1px solid rgba(0, 0, 0, 0.5);
   color: rgba(0, 0, 0, 0.5);
-
 }
 
 .vertical-line {
@@ -283,13 +303,15 @@ footer span {
   flex-flow: row nowrap;
   justify-content: flex-start;
   align-items: center;
-  width: 40%;
+  width: 65%;
   border-bottom: 1px solid black;
-  
+
   padding-bottom: 1em;
 }
 
 .productos form .search {
+  display: flex;
+  flex-flow: row nowrap;
   background-color: white;
   border-radius: 20px;
   width: 100%;
@@ -297,9 +319,13 @@ footer span {
   padding: 0.2em 0.7em;
 }
 
+.productos form .search label {
+  width: 5%;
+}
+
 .productos form .search #search {
   border-style: none;
-  width: 94%;
+  width: 95%;
   border-radius: 0 20px 20px 0;
   outline: none;
 }
@@ -312,7 +338,6 @@ footer span {
   height: 2.5em;
   border-radius: 20px;
 }
-
 
 /* Seguimiento de pedido */
 .buscador {
@@ -389,7 +414,6 @@ footer span {
   justify-content: center;
   align-items: center;
   width: 35%;
-  
 }
 
 .buscador .estados .estado #estado-etapa {
@@ -408,88 +432,86 @@ footer span {
   padding: 0.2em;
 }
 
-.linea-punteada{
+.linea-punteada {
   margin-left: 0%;
   margin-right: 0%;
   width: 100%;
   height: 13ch;
-  border-top: 1px dashed #000
+  border-top: 1px dashed #000;
 }
 /* Search Bar */
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap");
 
-.box-search{
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	font-family: 'Noto Sans KR', sans-serif;
+.box-search {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
-.container .input{
-	border: 0;
-	outline: none;
-	color: #8b7d77;
+.container .input {
+  border: 0;
+  outline: none;
+  color: #8b7d77;
 }
 
-.search_wrap{
-	width: 500px;
-	margin: 38px auto;
+.search_wrap {
+  width: 500px;
+  margin: 38px auto;
 }
 
-.search_wrap .search_box{
-	position: relative;
-	width: 500px;
-	height: 60px;
+.search_wrap .search_box {
+  position: relative;
+  width: 500px;
+  height: 60px;
 }
 
-.search_wrap .search_box .input{
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	padding: 10px 20px;
-	border-radius: 3px;
-	font-size: 18px;
+.search_wrap .search_box .input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 3px;
+  font-size: 18px;
 }
 
-.search_wrap .search_box .btn{
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 60px;
-	height: 100%;
-	background: #7690da;
-	z-index: 1;
-	cursor: pointer;
+.search_wrap .search_box .btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 100%;
+  background: #7690da;
+  z-index: 1;
+  cursor: pointer;
 }
 
-.search_wrap .search_box .btn:hover{
-	background: #708bd2;	
+.search_wrap .search_box .btn:hover {
+  background: #708bd2;
 }
 
-.search_wrap .search_box .btn.btn_common .fas{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%,-50%);
-	color: #fff;
-	font-size: 20px;
+.search_wrap .search_box .btn.btn_common .fas {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 20px;
 }
 
-
-.search_wrap.search_wrap_1 .search_box .input{
-	padding-right: 80px;
+.search_wrap.search_wrap_1 .search_box .input {
+  padding-right: 80px;
 }
 
-
-.search_wrap.search_wrap_1 .search_box .input{
-	border-radius: 50px;
+.search_wrap.search_wrap_1 .search_box .input {
+  border-radius: 50px;
 }
 
-.search_wrap.search_wrap_1 .search_box .btn{
-	right: 0px;
-	border-radius: 50%;
+.search_wrap.search_wrap_1 .search_box .btn {
+  right: 0px;
+  border-radius: 50%;
 }
 
 /* Vista Producto */
@@ -512,14 +534,13 @@ footer span {
   background-color: #ddd6ce;
 }
 
-
 /* clases borrables Vista Producto */
 
 .canvan-producto {
- width: 90%;
- height: 400px;
- border: 1px black;
- background-color: #7690da;
+  width: 90%;
+  height: 400px;
+  border: 1px black;
+  background-color: #7690da;
 }
 
 /* Vista Producto final */

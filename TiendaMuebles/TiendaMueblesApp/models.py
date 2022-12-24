@@ -40,7 +40,7 @@ class Registro_venta (models.Model):
         verbose_name_plural = "Registros de venta"
     Cantidad_Productos = models.PositiveIntegerField("Productos Vendidos")
     Total = models.PositiveIntegerField()
-    Fecha = models.DateField(auto_now=False, auto_now_add=False)
+    Fecha = models.DateField(auto_now_add=True)
     Pagado = models.BooleanField(default=False)
     id_Comprador = models.ForeignKey(Comprador, on_delete=models.CASCADE, verbose_name="Comprador")
     
