@@ -594,4 +594,20 @@ footer span {
   width: 20%;
 }
 
+.boton-suma-resta
+{
+  margin-right: 2%;
+  margin-left: 2%;
+  padding-left: 2%; 
+  padding-right: 2%; 
+  padding-top: 0.5%; 
+  padding-bottom: 0.5%;
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
+  border-radius: 15px;
+}
+.boton-suma-resta:hover
+{
+  background-color: #8b7d77;
+}
 /* Vista Producto final */
