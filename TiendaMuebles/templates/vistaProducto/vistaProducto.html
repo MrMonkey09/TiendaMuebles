@@ -25,149 +25,140 @@
   </head>
 </head>
 <body>
-    <header class="encabezado">
-        <div>
-          <h1>Titulo de empresa/negocio</h1>
-          <br />
-          <nav>
-            <ul>
-              <a href="/">Inicio</a>
-              <a href="/productos">Productos</a>
-              <a href="#">¡Envía tus diseños!</a>
-              <a href="/seguimiento">Seguimiento</a>
-              <a href="/contactanos">Contáctanos</a>
-            </ul>
-          </nav>
-        </div>
-      </header>
-      <main>
-        <div class="container-vistaProducto">
-            <div class="info-form">
-              <canvas class="canvan-producto"></canvas>
-
-            </div>
-            <hr class="vertical-line" />
-            <form>
-              <div class="solicitud-diseños">
-                <h4>Datos Solicitante</h4>
-                <div class="input-izquierda">
-                  <a>Nombre y Apellido de Contacto</a>
-                  <input
-                    type="text"
-                    name="nombre"
-                    placeholder="Nombre y Apellido"
-                    class="campo"
-                  />
-                </div>
-    
-                <div class="input-derecha">
-                  <a>Numero de Contacto</a>
-                  <label for="numeroContacto">+569</label>
-                  <input
-                    type="text"
-                    name="numeroContacto"
-                    placeholder="xxxxxxxx"
-                    class="campo"
-                  />
-                </div>
-    
-                <div class="input-izquierda">
-                  <a>Correo de Contacto</a>
-                  <input
-                    type="text"
-                    name="correo"
-                    placeholder="Ingrese correo "
-                    class="campo"
-                  />
-                </div>
-                <h4>Datos proyecto</h4>
-                <div class="input-izquierda">
-                  <a>Nombre Proyecto</a>
-                  <input
-                    type="text"
-                    name="nombreProyecto"
-                    placeholder="Nombre del Proyecto"
-                    class="campo"
-                  />
-                </div>
-    
-                <div class="input-derecha">
-                  <a>Alto</a>
-                  <input
-                    type="text"
-                    name="dimensiones"
-                    placeholder="Dimensiones del Proyecto"
-                    class="campo"
-                  />
-                </div>
-    
-                <div class="input-izquierda">
-                  <a>Ancho</a>
-                  <input
-                    type="text"
-                    name="dimensiones"
-                    placeholder="Dimensiones del Proyecto"
-                    class="campo"
-                  />
-                </div>
-    
-                <div class="input-derecha">
-                  <a>Largo</a>
-                  <input
-                    type="text"
-                    name="dimensiones"
-                    placeholder="Dimensiones del Proyecto"
-                    class="campo"
-                  />
-                </div>
-    
-                <div class="input-descripcion">
-                  <a>Descripción</a>
-                  <textarea
-                    class="input-textarea"
-                    name="descripcion"
-                    placeholder="Describa su proyecto..."
-                  ></textarea>
-                </div>
-    
-                <div>
-                  <a>Archivo de Referencia</a>
-                  <div class="marco-archivo">
-                    <label for="file">Selecione un referencia de referencia</label>
-                    <input type="file" id="file" name="file" multiple />
-                  </div>
-                  <button
-                    type="submit"
-                    id="btnContactanosForm"
-                    style="
-                      border: 1px solid black;
-                      padding: 0.2em 2em;
-                      background-color: white;
-                      border-radius: 2em;
-                      margin-top: 1em;
-                    "
-                  >
-                    Enviar
-                  </button>
-                </div>
-                <br />
-              </div>
-            </form>
-        </div>
-      </main>
-      <footer>
-        <h3>Acerca de nosotros</h3>
-        <span
-          >Somos un taller artesanal de mobiliario. En este espacio desarrollamos
-          pequeños proyectos en los que imprimimos nuestra visión del diseño y del
-          arte de la carpintería, así, nuestros productos no solo representan
-          nuestras preferencias estéticas, no solo son objeto, sino sobre todo
-          expresión de nuestro modo de trabajar la madera, son obra, técnica,
-          pasión, sudor y aprendizaje. Aquí el trabajo ha pedido, a medida y a
-          baja escala, resultan las reglas para asegurar la calidad no solo de
-          nuestro servicio y nuestros proyectos, sino en el ritmo de vida que
-          defendemos.
+  <header class="encabezado">
+    <div style="width: 70%; height: 200px; background-color: #ddc2af">
+      <h1>Titulo de empresa/negocio</h1>
+      <br />
+      <nav>
+        <ul>
+          <a href="/">Inicio</a>
+          <a href="/productos">Productos</a>
+          <a href="#">¡Envía tus diseños!</a>
+          <a href="/seguimiento">Seguimiento</a>
+          <a href="/contactanos">Contáctanos</a>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <div class="vistaProducto">
+      <div>
+        <span class="canvan-producto">
+          {% if producto.imagenes.first == None %}
+          <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
+            <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 100%" />
+          </a>
+          {% elif producto.imagenes.first != None %}
+          <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
+            <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 16rem" />
+          </a>
+          {% endif %}
         </span>
-      </footer>
+        <hr>
+        <div class="miniImagen-Producto">
+          <div>
+            <form class="canvan-producto-mini" method="POST">
+              {% csrf_token %}
+              {% if producto.imagenes. == None %}
+              <button type="submit" class="productos-producto">
+                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% elif producto.imagenes.first != None %}
+              <button type="submit" class="productos-producto">
+                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% endif %}
+            </form>
+          </div>
+          <div>
+            <form class="canvan-producto-mini" method="POST">
+              {% csrf_token %}
+              {% if producto.imagenes. == None %}
+              <button type="submit" class="productos-producto">
+                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% elif producto.imagenes.first != None %}
+              <button type="submit" class="productos-producto">
+                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% endif %}
+            </form>
+          </div>
+          <div>
+            <form class="canvan-producto-mini" method="POST">
+              {% csrf_token %}
+              {% if producto.imagenes. == None %}
+              <button type="submit" class="productos-producto">
+                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% elif producto.imagenes.first != None %}
+              <button type="submit" class="productos-producto">
+                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% endif %}
+            </form>
+          </div>
+          <div>
+            <form class="canvan-producto-mini" method="POST">
+              {% csrf_token %}
+              {% if producto.imagenes. == None %}
+              <button type="submit" class="productos-producto">
+                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% elif producto.imagenes.first != None %}
+              <button type="submit" class="productos-producto">
+                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 4rem" />
+              </button>
+              {% endif %}
+            </form>
+          </div>
+        </div>
+        <hr>
+
+      </div>
+      <hr class="vertical-line" />
+      <div class="vistaProducto-datos">
+        <div>
+          <h2>{{producto}}</h2>
+          <h3>$ {{producto.Precio}}</h3>
+        </div>
+        <hr>
+        <h4>Dimensiones</h4>
+        <div class="vistaProducto-dimensiones">
+          <h4>Alto</h4>
+          <h5>{{producto.Alto}}mm</h5>
+        </div>
+        <div class="vistaProducto-dimensiones">
+          <h4>Largo</h4>
+          <h5>{{producto.Largo}}mm</h5>
+        </div>
+        <div class="vistaProducto-dimensiones">
+          <h4>Ancho</h4>
+          <h5>{{producto.Ancho}}mm</h5>
+        </div>
+        <hr>
+        <div class="textoCompleto">
+          <h4>Cantidad<h4>
+              <h5>- 4 +</h5>
+        </div>
+        <button type="submit" id="btnContactanosForm" class="boton-simple">
+          Comprar
+        </button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <h3>Acerca de nosotros</h3>
+    <span>Somos un taller artesanal de mobiliario. En este espacio desarrollamos
+      pequeños proyectos en los que imprimimos nuestra visión del diseño y del
+      arte de la carpintería, así, nuestros productos no solo representan
+      nuestras preferencias estéticas, no solo son objeto, sino sobre todo
+      expresión de nuestro modo de trabajar la madera, son obra, técnica,
+      pasión, sudor y aprendizaje. Aquí el trabajo ha pedido, a medida y a
+      baja escala, resultan las reglas para asegurar la calidad no solo de
+      nuestro servicio y nuestros proyectos, sino en el ritmo de vida que
+      defendemos.
+    </span>
+  </footer>
 </body>
 </html>
