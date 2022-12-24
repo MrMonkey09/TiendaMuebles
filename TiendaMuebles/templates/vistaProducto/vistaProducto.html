@@ -35,8 +35,8 @@
   </header>
   <main>
     <div class="vistaProducto">
-      <div>
-        <span class="canvan-producto">
+      <div style="width: 48%;">
+        <span >
           {% if producto.imagenes.first == None %}
           <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
             <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 100%" />
@@ -110,11 +110,9 @@
 
       </div>
       <hr class="vertical-line" />
-      <div>
-        <div>
-          <h2>{{producto}}</h2>
-          <h3>$ {{producto.Precio}}</h3>
-        </div>
+      <div style="width: 48%;">
+        <h2 style="text-transform:uppercase;" >{{producto}}</h2>
+        <h3>$ {{producto.Precio}}</h3>
         <hr>
         <div class="vistaProducto-datos">
           <h4>Dimensiones</h4>
@@ -133,7 +131,7 @@
         </div>
 
         <hr>
-        <div class="textoCompleto">
+        <div>
           <h4>Cantidad<h4>
               <h5>- 4 +</h5>
         </div>

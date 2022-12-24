@@ -520,7 +520,7 @@ footer span {
   width: 100%;
   max-width: 1100px;
   margin: auto;
-  display: grid;
+  display: flex;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: 50px;
   margin-top: 30px;
@@ -540,18 +540,26 @@ footer span {
   margin-top: 10px;
 }
 
-.vistaProducto h4 {
-  width: 80%;
-}
-
 .vistaProducto h5 {
   width: 100%;
   margin-top: 2px;
 }
 
+.vistaProducto h4 {
+  display: flex;
+  width: 100%;
+}
+
+.vistaProducto h3 {
+  display: flex;
+  width: 100%;
+  margin-top: 2px;
+}
+
 .vistaProducto h2 {
+  display: flex;
   margin-bottom: 15px;
-  font-size: 35px;
+  font-size: auto;
   text-align: left;
 }
 
@@ -563,20 +571,20 @@ footer span {
   margin-top: 1em;
   margin-bottom: 1em;
 }
-/* clases borrables Vista Producto */
 
-.textoCompleto{
-  width: 100%;
-}
-.canvan-producto {
- width: 95%;
- height: 500px;
- border: 1px black;
-}
-.canvan-producto-mini {
+.marco-producto {
+  width: 95%;
+  height: 500px;
+  border: 1px black;
+ }
+
+.marco-producto-mini {
   width: 100%;
   border: 1px black;
 }
+/* clases borrables Vista Producto */
+
+
 
 .div-izquierda {
   width: 50%;
