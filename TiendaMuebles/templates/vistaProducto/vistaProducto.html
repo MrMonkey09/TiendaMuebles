@@ -39,24 +39,14 @@
       <div style="width: 50%; margin-bottom: 25px;">
         <div class="container-p">
           <div class="img_container">
-            <span class="main_img">
-              {% if producto.imagenes.first == None %}
-              <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
-                <img src="{% static 'images/product-placeholder.jpeg' %}" alt="img-producto" style="width: 65%" />
-              </a>
-              {% elif producto.imagenes.first != None %}
-              <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
-                <img src="/{{producto.imagenes.first.Ruta}}" alt="img-producto" style="width: 65%" />
-              </a>
-              {% endif %}
-            </span>
+            <img src="/{{producto.imagenes.first.Ruta}}" alt="" class="main_img">
           </div>
           <hr>
           <div class="thumbnail_container">
             <img class="thumbnail active" src="/{{producto.imagenes.first.Ruta}}" alt="">
-            <img class="thumbnail" src="/{{producto.imagenes.second.Ruta}}" alt="">
-            <img class="thumbnail" src="img3.jpg" alt="">
-            <img class="thumbnail" src="img4.jpg" alt="">
+            <img class="thumbnail" src="" alt="">
+            <img class="thumbnail" src="" alt="">
+            <img class="thumbnail" src="" alt="">
           </div>
         </div>
       </div>
@@ -111,18 +101,15 @@
 </html>
 <!-- JavaScript code-->
 <script>
-  //initialising a variable name data
+
+  // Script de suma y resta de comprar
   var data = 0;
 
-  //printing default value of data that is 0 in h2 tag
   document.getElementById("contador").innerText = data;
-
-  //creation of increment function
   function increment() {
     data = data + 1;
     document.getElementById("contador").innerText = data;
   }
-  //creation of decrement function
   function decrement() {
     data = data - 1;
     document.getElementById("contador").innerText = data;
@@ -140,6 +127,5 @@
       main_img.src = thumb.src
     })
   })
-
 
 </script>
