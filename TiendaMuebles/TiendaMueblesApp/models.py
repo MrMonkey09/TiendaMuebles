@@ -10,7 +10,7 @@ class producto (models.Model):
     Ancho = models.PositiveIntegerField()
     Largo = models.PositiveIntegerField()
     Fabricado = models.BooleanField(verbose_name="A pedido")
-    Promocionado= models.BooleanField(default=False, verbose_name="Â¿Promocionar?")
+    Promocionado= models.BooleanField(default=False, verbose_name="¿Promocionar?")
     
     def __str__(self):
         return self.Nombre_Producto

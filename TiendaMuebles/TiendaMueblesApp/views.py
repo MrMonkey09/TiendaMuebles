@@ -5,13 +5,16 @@ from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 import random
-
+from django.core.paginator import Paginator
+from django.http import Http404
 # Create your views here.
 
 
 def inicio(peticion):
     Productos = producto.objects.filter(Promocionado=True)
     Primer_Producto = Productos.first()
+    
+
     data = {'productos': Productos, "producto": Primer_Producto
             }
     return render(peticion, 'Inicio.html', data)
@@ -20,14 +23,19 @@ def inicio(peticion):
 def productos(peticion):
     producto_list = producto.objects.all()
     producto_list_promo = producto.objects.filter(Promocionado=True)
+    paginator = Paginator(producto_list_promo, 8)
+    Page_Num = peticion.GET.get('page')
+    Page_obj = paginator.get_page(Page_Num)
     producto_promo = random.choice(producto_list_promo)
     if 'search' in peticion.POST:
         if peticion.POST['search'] != "":
             print(peticion.POST['search'])
-            producto_list = producto.objects.filter(
+            Page_obj = producto.objects.filter(
                 Nombre_Producto__icontains=peticion.POST['search'])
     data = {"titulo": "Productos",
-            "productos": producto_list, "productoPromo": producto_promo}
+            "productos": Page_obj, 
+            "paginator": paginator,
+            "productoPromo": producto_promo}
     return render(peticion, 'productos/productos.html', data)
 
 
@@ -84,16 +92,16 @@ def seguimiento(peticion):
 
 def Contactanos(request):
         if request.method == "POST":
-                Nombre_Apellido = request.post["Nombre_Apellido"]
-                Telefono = request.post=["Telefono"]
-                Correo = request.post=["Correo"]
-                Asunto = request.POST['Asunto']
-                Mensaje = request.POST['Mensaje']
+                Nombre_Apellido = request.POST["Nombre_Apellido"]
+                Telefono = request.POST["Telefono"]
+                Correo = request.POST["Correo"]
+                Asunto = request.POST["Asunto"]
+                Mensaje = request.POST["Mensaje"]
                 
                 data = {'Nombre_Apellido' : Nombre_Apellido,
                         'Telefono': Telefono,
                         'Correo': Correo,
-                        'Mensaje':Mensaje
+                        'Mensaje': Mensaje
                         }
                 template = render_to_string('CorreoFormato.html', data)
                 
@@ -105,7 +113,7 @@ def Contactanos(request):
                         html_message= template
                 )
                 return redirect('/')
-        return render (request, 'contactanos.html')
+        return render (request, 'contactanos/contactanos.html')
 
 
 
