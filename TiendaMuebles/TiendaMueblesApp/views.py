@@ -1,6 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import producto, imagen, Comprador, Registro_venta, detalle_Venta
 from .functions import handled_uploaded_file
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
+from django.conf import settings
 import random
 
 # Create your views here.
@@ -79,13 +82,31 @@ def seguimiento(peticion):
     return render(peticion, 'seguimiento/seguimiento.html', data)
 
 
-def contactanos(peticion):
-    data = {"titulo": "Contactanos"}
+def Contactanos(request):
+        if request.method == "POST":
+                Nombre_Apellido = request.post["Nombre_Apellido"]
+                Telefono = request.post=["Telefono"]
+                Correo = request.post=["Correo"]
+                Asunto = request.POST['Asunto']
+                Mensaje = request.POST['Mensaje']
+                
+                data = {'Nombre_Apellido' : Nombre_Apellido,
+                        'Telefono': Telefono,
+                        'Correo': Correo,
+                        'Mensaje':Mensaje
+                        }
+                template = render_to_string('CorreoFormato.html', data)
+                
+                send_mail(
+                        Asunto,
+                        '',
+                        settings.EMAIL_HOST_USER,
+                        [settings.EMAIL_HOST_USER],
+                        html_message= template
+                )
+                return redirect('/')
+        return render (request, 'contactanos.html')
 
-    if peticion.method == 'POST':
-        pass
-
-    return render(peticion, 'contactanos/contactanos.html', data)
 
 
 def vistaProducto(peticion, id_producto):

@@ -137,3 +137,15 @@ STATICFILES_DIRS = STATIC_DIR
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+LOGIN_REDIRECT_URL = "/admin/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+# Envio de correos
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+# EMAIL_FILE_PATH = BASE_DIR / "sent_emails"
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_FROM = 'carpinteriadonwilfredo@gmail.com'
+EMAIL_HOST_USER = 'carpinteriadonwilfredo@gmail.com'
+EMAIL_HOST_PASSWORD = 'mobkmbinbzfczwid'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

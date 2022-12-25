@@ -66,7 +66,7 @@
         </p>
       </div>
       <hr class="vertical-line">
-      <form action="" id="formulario-contactanos" method="post"
+      <form action="{% url 'Contactanos' %}" id="formulario-contactanos" method="POST"
         style="display:flex;flex-flow: column nowrap;justify-content: flex-start;align-items: flex-start;">
         {% csrf_token %}
         <h4>Formulario de contacto</h4>
@@ -76,7 +76,7 @@
             <a>Nombre y Apellido de Contacto</a>
             <input
               type="text"
-              name="nombre"
+              name="Nombre_Apellido"
               placeholder="Nombre y Apellido"
               class="campo"
             />
@@ -84,7 +84,7 @@
 
           <div class="input-derecha">
             <a>Numero de Contacto</a>
-            <label for="numeroContacto">+569</label>
+            <label for="Telefono">+569</label>
             <input
               type="number"
               name="numeroContacto"
@@ -97,7 +97,7 @@
             <a>Correo de Contacto</a>
             <input
               type="email"
-              name="correo"
+              name="Correo"
               placeholder="Ingrese correo "
               class="campo"
             />
@@ -107,7 +107,7 @@
             <a>Asunto</a>
             <input
               type="text"
-              name="asunto"
+              name="Asunto"
               placeholder="Ingrese el asunto de contacto."
               class="campo input-asunto"
             />
@@ -117,7 +117,7 @@
             <a>Mensaje de contacto</a>
             <textarea
               class="input-textarea"
-              name="descripcion"
+              name="Mensaje"
               placeholder="Ingrese su mensaje de contacto aqui."
             ></textarea>
           <div>
