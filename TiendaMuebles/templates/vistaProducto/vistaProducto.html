@@ -44,9 +44,9 @@
           <hr>
           <div class="thumbnail_container">
             <img class="thumbnail active" src="/{{producto.imagenes.first.Ruta}}" alt="">
-            <img class="thumbnail" src="" alt="">
-            <img class="thumbnail" src="" alt="">
-            <img class="thumbnail" src="" alt="">
+            {% for img in imagenes %}
+            <img class="thumbnail" src="{{img.Ruta.url}}" alt="">
+            {% endfor %}
           </div>
         </div>
       </div>

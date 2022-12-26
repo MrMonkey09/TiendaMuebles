@@ -115,10 +115,11 @@ def Contactanos(request):
 
 def vistaProducto(peticion, id_producto):
     Producto = producto.objects.get(id=id_producto)
-    
+    imagenes = Producto.imagen_set.all()
     print(Producto)
     data = {
         "titulo": "¡Producto Selecionado!",
         "producto": Producto,
+        'imagenes': imagenes
     }
     return render(peticion, 'vistaProducto/vistaProducto.html', data)

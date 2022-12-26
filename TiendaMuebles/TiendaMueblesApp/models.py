@@ -19,7 +19,7 @@ class imagen (models.Model):
     class Meta:
         verbose_name_plural = "Imagenes"
     Ruta = models.ImageField(upload_to='static/images/productos/')
-    Id_Producto = models.ForeignKey(producto ,on_delete=models.CASCADE, related_name="imagenes")
+    Id_Producto = models.ForeignKey(producto ,on_delete=models.CASCADE)
     
     
 class Comprador (models.Model):
