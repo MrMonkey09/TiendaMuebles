@@ -14,7 +14,7 @@ def inicio(peticion):
     Primer_Producto = Productos.first()
     data = {'productos': Productos, "producto": Primer_Producto
             }
-    return render(peticion, 'Inicio.html', data)
+    return render(peticion, 'inicio.html', data)
 
 
 def productos(peticion):
