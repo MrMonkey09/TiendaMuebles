@@ -87,11 +87,13 @@ def seguimiento(peticion):
 
 
 def Contactanos(request):
-    if request.method == "POST":
-        form = Contactanos_Form(request.POST)
-        data = {
+    form = Contactanos_Form()
+    data = {
         'form': form
         }
+    if request.method == "POST":
+        form = Contactanos_Form(request.POST)
+
         if form.is_valid():
             Nombre_Apellido = form.cleaned_data["Nombre_Apellido"]
             Telefono = form.cleaned_data["Telefono"]
@@ -113,6 +115,7 @@ def Contactanos(request):
 
 def vistaProducto(peticion, id_producto):
     Producto = producto.objects.get(id=id_producto)
+    
     print(Producto)
     data = {
         "titulo": "¡Producto Selecionado!",
