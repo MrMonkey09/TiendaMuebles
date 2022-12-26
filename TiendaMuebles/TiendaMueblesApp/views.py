@@ -1,27 +1,23 @@
 from django.shortcuts import render, redirect
 from .models import producto, imagen, Comprador, Registro_venta, detalle_Venta
-from .functions import handled_uploaded_file
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 from django.conf import settings
 import random
 from django.core.paginator import Paginator
-from django.http import Http404
+from TiendaMueblesApp.forms import Contactanos_Form
 # Create your views here.
 
 
 def inicio(peticion):
     Productos = producto.objects.filter(Promocionado=True)
     Primer_Producto = Productos.first()
-    
-
     data = {'productos': Productos, "producto": Primer_Producto
             }
     return render(peticion, 'Inicio.html', data)
 
 
 def productos(peticion):
-    producto_list = producto.objects.all()
     producto_list_promo = producto.objects.filter(Promocionado=True)
     paginator = Paginator(producto_list_promo, 8)
     Page_Num = peticion.GET.get('page')
@@ -91,39 +87,35 @@ def seguimiento(peticion):
 
 
 def Contactanos(request):
-        if request.method == "POST":
-                Nombre_Apellido = request.POST["Nombre_Apellido"]
-                Telefono = request.POST["Telefono"]
-                Correo = request.POST["Correo"]
-                Asunto = request.POST["Asunto"]
-                Mensaje = request.POST["Mensaje"]
-                
-                data = {'Nombre_Apellido' : Nombre_Apellido,
-                        'Telefono': Telefono,
-                        'Correo': Correo,
-                        'Mensaje': Mensaje
-                        }
-                template = render_to_string('CorreoFormato.html', data)
-                
-                send_mail(
-                        Asunto,
-                        '',
-                        settings.EMAIL_HOST_USER,
-                        [settings.EMAIL_HOST_USER],
-                        html_message= template
-                )
-                return redirect('/')
-        return render (request, 'contactanos/contactanos.html')
-
-
+    if request.method == "POST":
+        form = Contactanos_Form(request.POST)
+        data = {
+        'form': form
+        }
+        if form.is_valid():
+            Nombre_Apellido = form.cleaned_data["Nombre_Apellido"]
+            Telefono = form.cleaned_data["Telefono"]
+            Correo = form.cleaned_data["Correo"]
+            Asunto = form.cleaned_data["Asunto"]
+            Mensaje = form.cleaned_data["Mensaje"]
+            print(form.cleaned_data)
+            Mail = {'Nombre_Apellido' : Nombre_Apellido,
+                    'Telefono': Telefono,
+                    'Correo': Correo,
+                    'Mensaje': Mensaje
+                    }
+            template = render_to_string('CorreoFormato.html', Mail)
+            send_mail(Asunto,'',settings.EMAIL_HOST_USER,[settings.EMAIL_HOST_USER],html_message= template)
+            return redirect('/')
+        else:
+            form = Contactanos_Form()
+    return render (request, 'contactanos/contactanos.html', data)
 
 def vistaProducto(peticion, id_producto):
     Producto = producto.objects.get(id=id_producto)
-    imagenes = Producto.imagen_set.all()
     print(Producto)
     data = {
         "titulo": "¡Producto Selecionado!",
         "producto": Producto,
-        "imagenes": imagenes
     }
     return render(peticion, 'vistaProducto/vistaProducto.html', data)
