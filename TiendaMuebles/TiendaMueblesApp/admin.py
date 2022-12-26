@@ -11,6 +11,7 @@ class admin_producto(admin.ModelAdmin):
     search_fields = ['Nombre_Producto']
     search_help_text = "Ingrese el nombre del Producto que desee buscar"
     list_filter = ['Fabricado', 'Promocionado']
+    list_editable= ["Fabricado", "Promocionado"]
     inlines = [
         ImagenProducto_Admin
     ]
@@ -25,7 +26,8 @@ class admin_Detalle_Venta(admin.ModelAdmin):
     search_help_text = "Busque por datos de Comprador o datos de producto"
 
 class admin_Venta(admin.ModelAdmin):
-    list_display = ['Cantidad_Productos', 'Total', 'Fecha', 'id_Comprador']
+    list_display = ['Cantidad_Productos', 'Total', 'Fecha', 'id_Comprador', "Pagado"]
+    list_editable = ['Pagado']
 
 class admin_Comprador(admin.ModelAdmin):
     list_display = ['Nombre_Comprador','Email', 'Rut', 'Telefono']

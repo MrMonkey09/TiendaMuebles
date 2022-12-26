@@ -10,3 +10,4 @@ sqlparse==0.4.3
 tomli==2.0.1
 tzdata==2022.5
 django-admin-interface==0.24.2
+xhtml2pdf==0.2.8

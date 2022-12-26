@@ -56,11 +56,19 @@
       </form>
       <section class="estados">
         {% if pedido != "" %}
-        <p>{{pedido.id_registro_Venta.id_Comprador}}</p>
-        <p>{{pedido.id_registro_Venta.id_Comprador.Email}}</p>
-        <p>{{pedido.id_registro_Venta.id_Comprador.Telefono}}</p>
-        <p>{{pedido.id_registro_Venta.id_Comprador.Rut}}</p>
+        <p>Nombre Cliente: {{pedido.id_registro_Venta.id_Comprador}}</p>
+        <p>Email Cliente: {{pedido.id_registro_Venta.id_Comprador.Email}}</p>
+        <p>Telefono Cliente: {{pedido.id_registro_Venta.id_Comprador.Telefono}}</p>
+        <p>Rut Cliente: {{pedido.id_registro_Venta.id_Comprador.Rut}}</p>
         <br>
+        <p>Nombre Producto: {{pedido.id_Producto}}</p>
+        <p>A Pedido por fabricar: {{pedido.id_Producto.Fabricado}}</p>
+        <p>Precio Producto: {{pedido.id_Producto.Precio}}</p>
+        <p>Cantidad Producto: {{pedido.id_registro_Venta.Cantidad_Productos}}</p>
+        <br>
+        <p>Total a pagar: {{pedido.id_registro_Venta.Total}}</p>
+        <p>Fecha del pedido: {{pedido.id_registro_Venta.Fecha}}</p>
+        <p>Estado de pago: {{pedido.id_registro_Venta.Pagado}}</p>
         {% elif pedido == "" %}
         <p>Por favor ingrese un número.</p>
         {% endif %}

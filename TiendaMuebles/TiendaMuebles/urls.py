@@ -26,5 +26,6 @@ urlpatterns = [
     path('seguimiento/', views.seguimiento),
     path('vistaProducto/<int:id_producto>', views.vistaProducto),
     path('contactanos/', views.Contactanos, name="Contactanos"),
-    path('accounts/', include('django.contrib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('venta/<int:id_venta>', views.Venta)
 ]
