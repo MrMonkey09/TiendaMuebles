@@ -36,40 +36,75 @@ def productos(peticion):
 
 
 def solicitudDiseño(peticion):
-    data = {"titulo": "¡Envianos tus diseños!"}
+    validacion = True
+    error_msg = {}
     print(peticion.POST)
-    
+
     if peticion.method == 'POST':
         qd = peticion.POST
-        
         Nombre_Comprador = qd['nombre']
-        Telefono = qd['numeroContacto']
-        Email = qd['correo']
-        Rut = qd['rut']
-        comprador = Comprador(Nombre_Comprador=Nombre_Comprador, Telefono=Telefono,Email=Email, Rut=Rut)
-        comprador.save()
-        print(comprador)
-        
-        Nombre_Producto = qd['Nombre_Producto']
-        Alto = qd['Alto']
-        Ancho = qd['Ancho']
-        Largo = qd['Largo']
-        solicitud = producto(Nombre_Producto=Nombre_Producto,Precio=0, Stock=0, Alto=Alto, Ancho=Ancho, Largo=Largo, Fabricado=True)
-        solicitud.save()
-        print(solicitud)
-        
-        files = peticion.FILES.getlist('file')
-        for f in files:
-            nuevaImagen = imagen(Ruta=f, Id_Producto=solicitud)
-            nuevaImagen.save()
+        for pos, char in enumerate(Nombre_Comprador):
+            if char == "0" or char == "1" or char == "2" or char == "3" or char == "4" or char == "5" or char == "6" or char == "7" or char == "8" or char == "9" or char == "@" or char == "." or char == "-" or char == "_" or char == "{" or char == ",":
+                error_msg['NombreVal'] = "Campo Nombre y Apellido: " + \
+                    char+" <- no es un caracter"
+                validacion = False
+                print(error_msg)
+                break
 
-        Cantidad_Productos = qd['Cantidad_Producto']
-        nuevaVenta = Registro_venta(Cantidad_Productos=Cantidad_Productos, Total=0, id_Comprador=comprador)
-        nuevaVenta.save()
-        print(nuevaVenta)
+        Rut = qd['rut']
+        for pos, char in enumerate(Rut):
+            if char == "a" or char == "A" or char == "b" or char == "B" or char == "c" or char == "C" or char == "d" or char == "D" or char == "e" or char == "E" or char == "f" or char == "F" or char == "g" or char == "G" or char == "h" or char == "H" or char == "i" or char == "I" or char == "j" or char == "J" or char == "l" or char == "L" or char == "m" or char == "M" or char == "n" or char == "N" or char == "ñ" or char == "Ñ" or char == "o" or char == "O" or char == "p" or char == "P" or char == "q" or char == "Q" or char == "r" or char == "R" or char == "s" or char == "S" or char == "t" or char == "T" or char == "u" or char == "U" or char == "v" or char == "V" or char == "w" or char == "W" or char == "x" or char == "X" or char == "y" or char == "Y" or char == "z" or char == "Z" or char == "@" or char == "-" or char == "_" or char == "{" or char == "," or char == ".":
+                error_msg['RutVal'] = "Campo Rut: " + \
+                    char+" <- caracter no valido."
+                validacion = False
+                print(error_msg)
+                break
+
+        Nombre_Producto = qd['Nombre_Producto']
+        for pos, char in enumerate(Nombre_Producto):
+            if char == "0" or char == "1" or char == "2" or char == "3" or char == "4" or char == "5" or char == "6" or char == "7" or char == "8" or char == "9" or char == "@" or char == "." or char == "-" or char == "_" or char == "{" or char == ",":
+                error_msg['NombreProductoVal'] = "Campo Nombre Proyecto: " + \
+                    char+" <- no es un caracter"
+                validacion = False
+                print(error_msg)
+                break
+            
+        if validacion:
+            print("formulario valido")
+            Telefono = qd['numeroContacto']
+            Email = qd['correo']
+            comprador = Comprador(Nombre_Comprador=Nombre_Comprador,
+                                Telefono=Telefono, Email=Email, Rut=Rut)
+            comprador.save()
+            print(comprador)
+
         
-        nuevoDetalle = detalle_Venta(id_registro_Venta=nuevaVenta, id_Producto=solicitud)
-        nuevoDetalle.save()
+            Alto = qd['Alto']
+            Ancho = qd['Ancho']
+            Largo = qd['Largo']
+            
+                
+            solicitud = producto(Nombre_Producto=Nombre_Producto, Precio=0,
+                                Stock=0, Alto=Alto, Ancho=Ancho, Largo=Largo, Fabricado=True)
+            solicitud.save()
+            print(solicitud)
+
+            files = peticion.FILES.getlist('file')
+            for f in files:
+                nuevaImagen = imagen(Ruta=f, Id_Producto=solicitud)
+                nuevaImagen.save()
+
+            Cantidad_Productos = qd['Cantidad_Producto']
+            nuevaVenta = Registro_venta(
+                Cantidad_Productos=Cantidad_Productos, Total=0, id_Comprador=comprador)
+            nuevaVenta.save()
+            print(nuevaVenta)
+
+            nuevoDetalle = detalle_Venta(
+                id_registro_Venta=nuevaVenta, id_Producto=solicitud)
+            nuevoDetalle.save()
+
+    data = {"titulo": "¡Envianos tus diseños!", "error_msg": error_msg}
 
     return render(peticion, 'solicitudDiseños/solicitudDiseños.html', data)
 
