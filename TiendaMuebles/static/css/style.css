@@ -164,8 +164,10 @@ footer span {
   align-items: center;
 }
 
+
 .input-asunto {
   width: 100%;
+  
 }
 
 .input-textarea {
@@ -181,7 +183,7 @@ footer span {
 }
 
 .input-izquierda {
-  width: 50%;
+  width: 48%;
 }
 
 .input-derecha {
