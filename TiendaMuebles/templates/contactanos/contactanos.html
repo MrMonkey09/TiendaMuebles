@@ -33,9 +33,10 @@
     </div>
   </header>
   <main>
-    <div class="container-form">
-      <div class="info-form">
-        <h4>Producto a medida</h4>
+    <div class="container">
+      <div class="row mt-2">
+        <div class="col-lg-6 col-md-4 col-sm-12 ">
+          <h4>Producto a medida</h4>
         <p>
           Podemos modificar las dimensiones la mayoría de nuestros productos para ajustarlas a tu necesidades, en este
           caso el valor se ajusta proporcionalmente más un cargo de 5% por redimensionamiento.
@@ -64,24 +65,31 @@
           resultan las reglas para asegurar la calidad no solo de nuestro servicio y nuestros proyectos, sino en el
           ritmo de vida que defendemos.
         </p>
-      </div>
-      <hr class="vertical-line">
-      <form action="{% url 'Contactanos' %}" id="formulario-contactanos" method="POST"
-        style="display:flex;flex-flow: column nowrap;justify-content: flex-start;align-items: flex-start;">
-        {% csrf_token %}
-        <h4>Formulario de contacto</h4>
-        <div class="solicitud-diseños">
-          <div>
-            {{form.as_p}}
-            <button
-              type="submit"
-              id="btnContactanosForm"
-              class="boton-simple">
-              Enviar
-            </button>
-          </div>
         </div>
-      </form>
+        <div class="col-lg-6 col-md-8 col-sm-6">
+          <form action="{% url 'Contactanos' %}" id="formulario-contactanos" method="POST">
+          {% csrf_token %}
+          <h4>Formulario de contacto</h4>
+          <div class="text-center">
+            {{form.as_p}}
+            </div>
+            <button
+            type="submit"
+            id="btnContactanosForm"
+            class = "mb-3"
+            style="
+              border: 1px solid black;
+              padding: 0.2em 2em;
+              background-color: white;
+              border-radius: 2em;
+              margin-top: 1em;
+            "
+          >
+            Enviar
+          </button>
+        </div>
+      </div>
+    </div>    
   </main>
   <footer>
     <h3>Acerca de nosotros</h3>

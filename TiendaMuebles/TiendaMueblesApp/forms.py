@@ -8,9 +8,9 @@ class Contactanos_Form(forms.Form):
     Asunto = forms.CharField(max_length=20, required=True)
     Mensaje = forms.CharField(widget=forms.Textarea)
     
-    Nombre_Apellido.widget.attrs['class'] = 'form-control'
-    Telefono.widget.attrs['class'] = 'form-control'
-    Rut.widget.attrs['class'] = 'form-control'
-    Correo.widget.attrs['class'] = 'form-control'
-    Asunto.widget.attrs['class'] = 'form-control'
-    Mensaje.widget.attrs['class'] = 'form-control'
+    Nombre_Apellido.widget.attrs['class'] = 'form-control text-center'
+    Telefono.widget.attrs['class'] = 'form-control text-center'
+    Rut.widget.attrs['class'] = 'form-control text-center'
+    Correo.widget.attrs['class'] = 'form-control text-center'
+    Asunto.widget.attrs['class'] = 'form-control text-center'
+    Mensaje.widget.attrs['class'] = 'form-control text-center'
