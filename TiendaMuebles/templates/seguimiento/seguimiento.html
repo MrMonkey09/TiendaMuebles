@@ -40,19 +40,16 @@
       </div>
     </header>
     <main class="buscador">
-      <div id="titulo-buscador"><h3>Seguimiento de Pedidos</h3></div>
+      <div id="titulo-buscador"><h3 class="text-center">Seguimiento de Pedidos</h3></div>
       <form method="POST">
         {% csrf_token %}
-        <div class="search">
-          <label for="search"><i class="bi bi-search"></i></label>
-          <input
-            placeholder="Buscar Pedido"
-            type="search"
-            id="search"
-            name="search"
-          />
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Ingrese el numero generado despues su compra o solicitud" aria-describedby="button-addon2" name="search">
+          <button type="submit">Buscar</button>
         </div>
-        <button type="submit">Buscar</button>
+        
+        </div>
+        
       </form>
       <section class="estados">
         {% if pedido != "" %}

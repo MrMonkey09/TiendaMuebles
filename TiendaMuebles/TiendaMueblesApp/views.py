@@ -100,7 +100,6 @@ def Contactanos(request):
             Correo = form.cleaned_data["Correo"]
             Asunto = form.cleaned_data["Asunto"]
             Mensaje = form.cleaned_data["Mensaje"]
-            print(form.cleaned_data)
             Mail = {'Nombre_Apellido' : Nombre_Apellido,
                     'Telefono': Telefono,
                     'Correo': Correo,
