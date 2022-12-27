@@ -17,7 +17,7 @@ class admin_producto(admin.ModelAdmin):
     ]
 
 class admin_imagen(admin.ModelAdmin):
-    list_display = ['Ruta']
+    list_display = ['Ruta', 'Id_Producto']
 
 class admin_Detalle_Venta(admin.ModelAdmin):
     list_display = ['id_registro_Venta', 'Comprador','Email', 'Fecha_Compra','Telefono','id_Producto', 'Comprados', 'Total']

@@ -558,6 +558,7 @@ footer span {
 
 .vistaProducto h4 {
   display: flex;
+  flex-flow: row wrap;
   width: 100%;
 }
 

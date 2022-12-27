@@ -39,13 +39,15 @@
       <div style="width: 50%; margin-bottom: 25px;">
         <div class="container-p">
           <div class="img_container">
-            <img src="/{{producto.imagenes.first.Ruta}}" alt="" class="main_img">
+            <img src="{{imgActiva.Ruta.url}}" alt="" class="main_img">
           </div>
           <hr>
           <div class="thumbnail_container">
-            <img class="thumbnail active" src="/{{producto.imagenes.first.Ruta}}" alt="">
+            <img class="thumbnail active" src="{{imgActiva.Ruta.url}}" alt="">
             {% for img in imagenes %}
+            {% if img.id != imgActiva.id %}
             <img class="thumbnail" src="{{img.Ruta.url}}" alt="">
+            {% endif %}
             {% endfor %}
           </div>
         </div>
@@ -71,15 +73,53 @@
           </div>
         </div>
         <hr>
-        <div class="cantidad">
-          <h4>Cantidad<h4>
-              <button class="boton-suma-resta" onclick="decrement()">-</button>
-              <a style="margin-top: 1%;" id="contador"></a>
-              <button class="boton-suma-resta" onclick="increment()">+</button>
-        </div>
-        <button type="submit" id="btnContactanosForm" class="boton-simple">
-          Comprar
-        </button>
+        <form method="POST" class="cantidad">
+          {% csrf_token %}
+            <h4 class="input-asunto">Datos Solicitante</h4>
+            {% if error_msg.NombreVal %}
+            <h5>{{error_msg.NombreVal}}</h5>
+            {% endif %}
+            {% if error_msg.RutVal %}
+            <h5>{{error_msg.RutVal}}</h5>
+            {% endif %}
+            {% if error_msg.NombreProductoVal %}
+            <h5>{{error_msg.NombreProductoVal}}</h5>
+            {% endif %}
+            {% if error_msg.CantidadVal %}
+            <h5>{{error_msg.CantidadVal}}</h5>
+            {% endif %}
+            <div class="input-izquierda">
+              <a>Nombre y Apellido de Contacto</a>
+              <input type="text" name="nombre" placeholder="Nombre y Apellido" class="campo input-asunto" minlength="6" maxlength="50" required/>
+            </div>
+  
+            <div class="input-derecha">
+              <a>Numero de Contacto</a>
+              <input type="number" name="numeroContacto" placeholder="912345678" class="campo  input-asunto" minlength="9" maxlength="9" required/>
+            </div>
+  
+            <div class="input-izquierda">
+              <a>Correo de Contacto</a>
+              <input type="email" name="correo" placeholder="Ingrese correo " class="campo input-asunto" required/>
+            </div>
+            <div class="input-derecha">
+              <a>Rut, sin puntos y con guion</a>
+              <input type="text" name="rut" placeholder="xxxxxxxxx-x" class="campo input-asunto" minlength="9" maxlength="11" required/>
+            </div>
+
+            <div class="input-izquierda">
+              <h4>Cantidad<h4>
+                <button type="button" class="boton-suma-resta" onclick="decrement()">-</button>
+                <input type="number" style="margin-top: 1%;background-color:transparent;width:2rem;border:none;" id="contador" name="cantidad" value="0" />
+                <button type="button" class="boton-suma-resta" onclick="increment()">+</button>
+            </div>
+  
+            <div>
+              <button type="submit" id="btnContactanosForm" class="boton-simple">
+                Enviar
+              </button>
+            </div>
+        </form>
       </div>
     </div>
   </main>
@@ -105,14 +145,16 @@
   // Script de suma y resta de comprar
   var data = 0;
 
-  document.getElementById("contador").innerText = data;
+  document.getElementById("contador").value = data;
   function increment() {
     data = data + 1;
-    document.getElementById("contador").innerText = data;
+    document.getElementById("contador").value = data;
   }
   function decrement() {
-    data = data - 1;
-    document.getElementById("contador").innerText = data;
+    if (document.getElementById("contador").value > 0) {
+      data = data - 1;
+      document.getElementById("contador").value = data;
+    }
   }
 
   // script de selectro de imagen
