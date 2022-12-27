@@ -54,6 +54,10 @@
       <div class="estados">
         {% if pedido != "" %}
         <ul class="list-group list-group-flush resultados">
+          
+          <li class="list-group-item">
+            -Datos del comprador-
+          </li>
           <li class="list-group-item">
             Nombre: {{pedido.id_registro_Venta.id_Comprador}}
           </li>
@@ -67,27 +71,35 @@
             Rut: {{pedido.id_registro_Venta.id_Comprador.Rut}}
           </li>
           <li class="list-group-item">
-            Producto: {{pedido.id_Producto.Nombre_Producto}}
+            -Datos del Producto/Solicitud de Diseño-
           </li>
           <li class="list-group-item">
-            Cantidad Comprada: {{pedido.id_registro_Venta.Cantidad_Productos}}
+            Nombre del Producto: {{pedido.id_Producto}}
           </li>
           <li class="list-group-item">
-            Total: {{pedido.Total}}
+            Cantidad: {{pedido.id_registro_Venta.Cantidad_Productos}}
           </li>
           <li class="list-group-item">
-            Fecha de compra: {{pedido.id_registro_Venta.Fecha}}
+            Precio unitario: {{pedido.id_Producto.Precio}}
           </li>
-          {% if pedido.id_registro_Venta.Pagado == True %}
           <li class="list-group-item">
-            Su producto se encuentra pagado.
+            Alto del Producto: {{pedido.id_Producto.Alto}}
           </li>
-          {% elif pedido.id_registro_Venta.Pagado == False %}
           <li class="list-group-item">
-            Usted no ha pagado su producto
+            Ancho del Producto: {{pedido.id_Producto.Ancho}}
           </li>
-          {% endif %}
-
+          <li class="list-group-item">
+            Largo del Producto: {{pedido.id_Producto.Largo}}
+          </li>
+          <li class="list-group-item">
+            Solicitud de Diseño: {% if pedido.id_Producto.Fabricado %}Si {% else %}No {% endif %}
+          </li>
+          <li class="list-group-item">
+            Total a Pagar: {{pedido.id_registro_Venta.Total}}
+          </li>
+          <li class="list-group-item">
+            Fecha de la compra/solicitud: {{pedido.id_registro_Venta.Fecha}}
+          </li>
         </ul>
         {% elif pedido == "" %}
         <p>Por favor ingrese un número.</p>

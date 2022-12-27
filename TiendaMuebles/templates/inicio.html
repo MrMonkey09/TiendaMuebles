@@ -43,16 +43,16 @@
       <h2>¡Productos Destacados!</h2>
       <div class="producto" style="width: 100%">
         <a href="vistaProducto/{{producto.id}}">
-          {% if producto.imagenes.first == None %}
+          {% if producto.imagen_set.first == None %}
           <img
             src="{% static 'images/product-placeholder.jpeg' %}"
             alt="img-producto"
             style="width: 25rem"
           />
           <span style="right: 0; top: 11rem">{{producto}}</span>
-          {% elif producto.imagenes.first != None %}
+          {% elif producto.imagen_set.first != None %}
           <img
-            src="{{producto.imagenes.first.Ruta}}"
+            src="{{producto.imagen_set.first.Ruta}}"
             alt="img-producto"
             style="width: 25rem"
           />
@@ -63,14 +63,14 @@
       {% for p in productos %} {% if p.id != producto.id %}
       <div class="producto">
         <a href="vistaProducto/{{p.id}}">
-          {% if p.imagenes.first == None %}
+          {% if p.imagen_set.first == None %}
           <img
             src="{% static 'images/product-placeholder.jpeg' %}"
             alt="img-producto"
           />
           <span>{{p}}</span>
-          {% elif p.imagenes.first != None %}
-          <img src="{{p.imagenes.first.Ruta}}" alt="img-producto" />
+          {% elif p.imagen_set.first != None %}
+          <img src="{{p.imagen_set.first.Ruta}}" alt="img-producto" />
           <span>{{p}}</span>
           {% endif %}
         </a>

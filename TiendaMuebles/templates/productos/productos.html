@@ -44,7 +44,7 @@
     <main class="productos">
       <section class="productos-encabezado">
         <h3>Buscar Producto</h3>
-        {% if productoPromo.imagenes.first == None %}
+        {% if productoPromo.imagen_set.first == None %}
         <a href="/vistaProducto/{{productoPromo.id}}">
           <img
             src="{% static 'images/product-placeholder.jpeg' %}"
@@ -53,10 +53,10 @@
           />
           <span style="right: 0.2rem; top: 87%;">{{productoPromo}}</span>
         </a>
-        {% elif productoPromo.imagenes.first != None  %}
+        {% elif productoPromo.imagen_set.first != None  %}
           <a href="/vistaProducto/{{productoPromo.id}}">
             <img
-              src="{{productoPromo.imagenes.first.Ruta}}"
+              src="/{{productoPromo.imagen_set.first.Ruta}}"
               alt="img-producto"
               style="width: 15rem"
             />
@@ -81,7 +81,7 @@
       <section class="productos-panel">
         <div class="productos-lista">
           {% for producto in productos %}
-          {% if producto.imagenes.first == None %}
+          {% if producto.imagen_set.first == None %}
           <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
             <img
             src="{% static 'images/product-placeholder.jpeg' %}"
@@ -90,10 +90,10 @@
             />
             <span>{{producto}}</span>
           </a>
-          {% elif producto.imagenes.first != None %}
+          {% elif producto.imagen_set.first != None %}
           <a href="/vistaProducto/{{producto.id}}" class="productos-producto">
             <img
-            src="/{{producto.imagenes.first.Ruta}}"
+            src="/{{producto.imagen_set.first.Ruta}}"
               alt="img-producto"
               style="width: 16rem"
             />
