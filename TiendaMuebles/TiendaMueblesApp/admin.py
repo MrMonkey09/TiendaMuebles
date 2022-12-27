@@ -16,9 +16,6 @@ class admin_producto(admin.ModelAdmin):
         ImagenProducto_Admin
     ]
 
-class admin_imagen(admin.ModelAdmin):
-    list_display = ['Ruta', 'Id_Producto']
-
 class admin_Detalle_Venta(admin.ModelAdmin):
     list_display = ['id_registro_Venta', 'Comprador','Email', 'Fecha_Compra','Telefono','id_Producto', 'Comprados', 'Total']
     list_filter = ['id_Producto__Nombre_Producto']
@@ -26,16 +23,15 @@ class admin_Detalle_Venta(admin.ModelAdmin):
     search_help_text = "Busque por datos de Comprador o Nombre del producto"
 
 class admin_Venta(admin.ModelAdmin):
-    list_display = ['Cantidad_Productos', 'Total', 'Fecha', 'id_Comprador', 'Pagado']
+    list_display = ['Cantidad_Productos', 'Fecha', 'id_Comprador', 'Pagado']
     list_editable = ['Pagado']
 
 class admin_Comprador(admin.ModelAdmin):
     list_display = ['Nombre_Comprador','Email', 'Rut', 'Telefono']
-    search_fields = ['Nombre_Comprador']
-    search_help_text = "Ingrese el nombre del comprador que desea buscar"
+    search_fields = ['Nombre_Comprador', 'Email', 'Rut', 'Telefono']
+    search_help_text = "Ingrese un dato su comprador para buscar"
     
 admin.site.register(producto, admin_producto)
-admin.site.register(imagen, admin_imagen)
 admin.site.register(detalle_Venta, admin_Detalle_Venta)
 admin.site.register(Registro_venta, admin_Venta)
 admin.site.register(Comprador, admin_Comprador)
