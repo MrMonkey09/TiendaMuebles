@@ -55,7 +55,10 @@
         <p>Ancho del Producto: {{venta.id_Producto.Ancho}}</p>
         <p>Largo del Producto: {{venta.id_Producto.Largo}}</p>
         <hr>
-        <p>Total a Pagar: {{venta.id_registro_Venta.Total}}</p>
+        {% if venta.id_Producto.Fabricado %}
+        <p>Por favor enviar una solicitud de contacto con el numero de pedido para concretar su solicitud de disenho.</p>
+        {% endif %}
+        <p>Total a Pagar: {{venta.id_registro_Venta.Total}} -Por acordar luego de enviar la solicitud de contacto-</p>
         <p>Fecha de la compra: {{venta.id_registro_Venta.Fecha}}</p>
       </div>
       <p style="font-size:1em;color:red;">Por favor, guarde este documento en un lugar seguro. El Nro de pedido en este documento se requiere para todo tipo de consulta con respecto a la solicitud de diseno o compra de producto.</p>

@@ -78,8 +78,6 @@ def solicitudDiseño(peticion):
             Alto = qd['Alto']
             Ancho = qd['Ancho']
             Largo = qd['Largo']
-            
-                
             solicitud = producto(Nombre_Producto=Nombre_Producto, Precio=0,
                                 Stock=0, Alto=Alto, Ancho=Ancho, Largo=Largo, Fabricado=True)
             solicitud.save()
@@ -97,6 +95,7 @@ def solicitudDiseño(peticion):
             nuevoDetalle = detalle_Venta(
                 id_registro_Venta=nuevaVenta, id_Producto=solicitud)
             nuevoDetalle.save()
+            return redirect('/venta/'+str(nuevoDetalle.id))
 
     data = {"titulo": "¡Envianos tus diseños!", "error_msg": error_msg}
 
