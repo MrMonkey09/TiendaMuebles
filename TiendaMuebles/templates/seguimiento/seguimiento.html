@@ -66,6 +66,28 @@
           <li class="list-group-item">
             Rut: {{pedido.id_registro_Venta.id_Comprador.Rut}}
           </li>
+          <li class="list-group-item">
+            Producto: {{pedido.id_Producto.Nombre_Producto}}
+          </li>
+          <li class="list-group-item">
+            Cantidad Comprada: {{pedido.id_registro_Venta.Cantidad_Productos}}
+          </li>
+          <li class="list-group-item">
+            Total: {{pedido.Total}}
+          </li>
+          <li class="list-group-item">
+            Fecha de compra: {{pedido.id_registro_Venta.Fecha}}
+          </li>
+          {% if pedido.id_registro_Venta.Pagado == True %}
+          <li class="list-group-item">
+            Su producto se encuentra pagado.
+          </li>
+          {% elif pedido.id_registro_Venta.Pagado == False %}
+          <li class="list-group-item">
+            Usted no ha pagado su producto
+          </li>
+          {% endif %}
+
         </ul>
         {% elif pedido == "" %}
         <p>Por favor ingrese un número.</p>
