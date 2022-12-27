@@ -51,17 +51,26 @@
         </div>
         
       </form>
-      <section class="estados">
+      <div class="estados">
         {% if pedido != "" %}
-        <p>Nombre: {{pedido.id_registro_Venta.id_Comprador}}</p>
-        <p>Email: {{pedido.id_registro_Venta.id_Comprador.Email}}</p>
-        <p>Telefono: {{pedido.id_registro_Venta.id_Comprador.Telefono}}</p>
-        <p>Rut: {{pedido.id_registro_Venta.id_Comprador.Rut}}</p>
-        <br>
+        <ul class="list-group list-group-flush resultados">
+          <li class="list-group-item">
+            Nombre: {{pedido.id_registro_Venta.id_Comprador}}
+          </li>
+          <li class="list-group-item">
+            Email: {{pedido.id_registro_Venta.id_Comprador.Email}}
+          </li>
+          <li class="list-group-item">
+            Telefono: {{pedido.id_registro_Venta.id_Comprador.Telefono}}
+          </li>
+          <li class="list-group-item">
+            Rut: {{pedido.id_registro_Venta.id_Comprador.Rut}}
+          </li>
+        </ul>
         {% elif pedido == "" %}
         <p>Por favor ingrese un número.</p>
         {% endif %}
-      </section>
+      </div>
     </main>
     <footer>
       <h3>Acerca de nosotros</h3>

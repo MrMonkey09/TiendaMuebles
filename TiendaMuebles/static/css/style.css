@@ -416,15 +416,16 @@ footer span {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 50vh;
+  height: auto;
+  margin-bottom: 20vh;
 }
 
-.buscador .estados .estado {
+.buscador .estados .resultados {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: column;
   justify-content: center;
-  align-items: center;
-  width: 35%;
+  width: 50%;
+  border-radius: 10px;
 }
 
 .buscador .estados .estado #estado-etapa {
