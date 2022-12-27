@@ -106,8 +106,10 @@ def seguimiento(peticion):
     pedido = ""
     if 'search' in peticion.POST:
         if peticion.POST['search'] != "":
-            pedido = detalle_Venta.objects.get(
-                id=peticion.POST['search'])
+            try:
+                pedido = detalle_Venta.objects.get(id=peticion.POST['search'])
+            except:
+                pedido = None
     data = {"titulo": "Seguimiento", "pedido":pedido}
     return render(peticion, 'seguimiento/seguimiento.html', data)
 
@@ -157,7 +159,7 @@ def vistaProducto(peticion, id_producto):
 
             Rut = qd['rut']
             for pos, char in enumerate(Rut):
-                if char == "a" or char == "A" or char == "b" or char == "B" or char == "c" or char == "C" or char == "d" or char == "D" or char == "e" or char == "E" or char == "f" or char == "F" or char == "g" or char == "G" or char == "h" or char == "H" or char == "i" or char == "I" or char == "j" or char == "J" or char == "l" or char == "L" or char == "m" or char == "M" or char == "n" or char == "N" or char == "ñ" or char == "Ñ" or char == "o" or char == "O" or char == "p" or char == "P" or char == "q" or char == "Q" or char == "r" or char == "R" or char == "s" or char == "S" or char == "t" or char == "T" or char == "u" or char == "U" or char == "v" or char == "V" or char == "w" or char == "W" or char == "x" or char == "X" or char == "y" or char == "Y" or char == "z" or char == "Z" or char == "@" or char == "_" or char == "{" or char == "," or char == ".":
+                if char == "a" or char == "A" or char == "b" or char == "B" or char == "c" or char == "C" or char == "d" or char == "D" or char == "e" or char == "E" or char == "f" or char == "F" or char == "g" or char == "G" or char == "h" or char == "H" or char == "i" or char == "I" or char == "j" or char == "J" or char == "l" or char == "L" or char == "m" or char == "M" or char == "n" or char == "N" or char == "ñ" or char == "Ñ" or char == "o" or char == "O" or char == "p" or char == "P" or char == "q" or char == "Q" or char == "r" or char == "R" or char == "s" or char == "S" or char == "t" or char == "T" or char == "u" or char == "U" or char == "v" or char == "V" or char == "w" or char == "W" or char == "x" or char == "X" or char == "y" or char == "Y" or char == "z" or char == "Z" or char == "@" or char == "_" or char == "-" or char == "{" or char == "," or char == ".":
                     error_msg['RutVal'] = "Campo Rut: " + \
                         char+" <- caracter no valido."
                     validacion = False
