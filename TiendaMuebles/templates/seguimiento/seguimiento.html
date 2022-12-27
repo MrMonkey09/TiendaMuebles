@@ -97,6 +97,15 @@
           <li class="list-group-item">
             Total a Pagar: {{pedido.id_registro_Venta.Total}}
           </li>
+          {% if pedido.id_registro_Venta.Pagado == True %}
+          <li class="list-group-item">
+            Su producto se encuentra pagado.
+          </li>
+          {% elif pedido.id_registro_Venta.Pagado == False %}
+          <li class="list-group-item">
+            Usted no ha pagado su producto
+          </li>
+          {% endif %}
           <li class="list-group-item">
             Fecha de la compra/solicitud: {{pedido.id_registro_Venta.Fecha}}
           </li>
